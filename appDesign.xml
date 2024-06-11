@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Personal-Website-Design>
+    <Requirements>
+        <Needed-Requirements>
+            <Programming-Framework>NextJS</Programming-Framework>
+            <Styling-Framework>TailswindCSS</Styling-Framework>
+            <Database>Mongo-DB</Database>
+            <DB-ORM>Prisma</DB-ORM>
+        </Needed-Requirements>
+        <Extra-Requirements>
+            
+        </Extra-Requirements>
+    </Requirements>
+</Personal-Website-Design>
