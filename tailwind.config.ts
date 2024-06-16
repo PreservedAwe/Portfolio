@@ -13,7 +13,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-galaxy": "url('/galaxy.jpg')",
-        "main-theme": "linear-gradient(to right top, #1b36e9, #6012a9, #620071, #500044, #340623, #2f192d, #2d2631, #303030, #525252, #767676, #9c9c9c, #c4c4c4)",
+        "main-theme": "linear-gradient(to right top, #004bbc, #0745cc, #253bda, #412be5, #5d00ee)",
       },
     },
   },
