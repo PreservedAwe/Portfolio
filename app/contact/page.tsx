@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/partials/Header";
+import Footer from "../components/partials/Footer";
 import ContentType from "../lib/classes";
 
 

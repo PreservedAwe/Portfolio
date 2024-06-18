@@ -1,12 +1,15 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/partials/Header";
+import Footer from "./components/partials/Footer";
 import ContentType from "./lib/classes";
+import * as Text from "./components/text/Text";
+
+
 
 const MainContent = () => {
   return(
     <main className={ContentType.mainContent}>
       <div className="text-white flex justify-center">
-        <h1 className="font-bold text-5xl">Welcome To My Website. Take a look around and see what I do.</h1>
+        <Text.LText text="Welcome To My Website. Take a look around and see what I do."/>
       </div>
     </main>
   );

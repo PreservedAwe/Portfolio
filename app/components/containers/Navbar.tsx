@@ -1,4 +1,7 @@
+'use client'; 
+
 import Link from 'next/link';
+import {motion} from "framer-motion";
 
 const links = [
     { href: '/about', text: 'About Me' },
@@ -13,8 +16,8 @@ export default function Navbar() {
     return (
         <nav className='size-full flex justify-around items-center'>
             {links.map((link, index) => (
-                <Link key={index} href={link.href} className="bg-black text-white rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-black transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
-                {link.text}
+                <Link key={index} href={link.href} className="bg-black text-white rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-black transition">
+                    {link.text}
                 </Link>
             ))}
         </nav>
