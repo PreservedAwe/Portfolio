@@ -8,7 +8,7 @@ import * as Text from "./components/text/Text";
 const MainContent = () => {
   return(
     <main className={ContentType.mainContent}>
-      <div className="text-white flex justify-center">
+      <div className="flex justify-center max-h-full max-w-full overflow-auto">
         <Text.LText text="Welcome To My Website. Take a look around and see what I do."/>
       </div>
     </main>

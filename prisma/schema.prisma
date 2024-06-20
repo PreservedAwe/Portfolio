@@ -13,3 +13,10 @@ model project {
   language     String
   project_name String
 }
+
+model hobby {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  type         String
+  bio          String
+  name         String
+}
