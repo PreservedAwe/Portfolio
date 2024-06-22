@@ -16,7 +16,7 @@ export default function Navbar() {
     return (
         <nav className='size-full flex justify-around items-center'>
             {links.map((link, index) => (
-                <Link key={index} href={link.href} className="bg-black text-white rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-black transition ease-in-out duration-300">
+                <Link key={index} href={link.href} id={link.href.slice(1)} className="bg-black text-white rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-black transition ease-in-out duration-300 ">
                     {link.text}
                 </Link>
             ))}

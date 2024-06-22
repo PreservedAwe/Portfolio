@@ -22,7 +22,7 @@ export default function Footer() {
         <Text.SText text="@2024"/> 
       </div>
       <div className="">
-        <a onClick={handleClick} href="#">
+        <a onClick={handleClick} href="credits">
           <Text.SText text="Click Me For Credits and Tech Stack Used:"/> 
           {isVisible && (<TechModal />)}
         </a>
