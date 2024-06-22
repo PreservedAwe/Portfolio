@@ -4,8 +4,8 @@ import Link from 'next/link';
 import {motion} from "framer-motion";
 
 const links = [
-    { href: '/about', text: 'About Me' },
-    { href: '/contact', text: 'Contact Me' },
+    { href: '/about', text: 'About' },
+    { href: '/contact', text: 'Contact' },
     { href: '/hobbies', text: 'Hobbies' },
     { href: '/projects', text: 'Projects' },
     { href: '/', text: 'Home' },

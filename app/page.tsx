@@ -2,6 +2,7 @@ import Header from "./components/partials/Header";
 import Footer from "./components/partials/Footer";
 import ContentType from "./lib/classes";
 import * as Text from "./components/text/Text";
+import MainScene from "./components/3d/MainScene";
 
 
 
@@ -18,6 +19,7 @@ const MainContent = () => {
 export default function Page() {
   return (
     <>
+      <MainScene/>
       <Header/>
       <MainContent/>
       <Footer/>

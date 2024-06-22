@@ -2,6 +2,7 @@ import Header from "../components/partials/Header";
 import Footer from "../components/partials/Footer";
 import ContentType from "../lib/classes";
 import { PrismaClient } from '@prisma/client';
+import MainScene from "../components/3d/MainScene";
 
 const MainContent = async () => {
 
@@ -43,6 +44,7 @@ const MainContent = async () => {
 export default function Page() {
   return (
     <>
+      <MainScene/>
       <Header/>
       <MainContent/>
       <Footer/>
