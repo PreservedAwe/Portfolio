@@ -17,7 +17,7 @@ export default function Footer() {
   };
 
   return (
-    <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center">
+    <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center m-4">
       <div className="">
         <Text.SText text="@2024"/> 
       </div>
@@ -27,13 +27,16 @@ export default function Footer() {
           {isVisible && (<TechModal />)}
         </a>
       </div>
-      <div className="">
+      <div className="flex justify-center bg-white rounded-lg p-2">
         <a href="https://www.youtube.com/watch?v=DJaZUFK8Kv4">
-          <img className="size-11" src="/youtube.svg" alt="youtube"/>
+          <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-11" src="/youtube.svg" alt="youtube"/>
         </a>
-        <a href="https://www.youtube.com/watch?v=DJaZUFK8Kv4">
-          <img className="size-11" src="/github.svg" alt="github"/>
+        <a href="https://github.com/PreservedAwe">
+          <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-11" src="/github.svg" alt="github"/>
         </a>      
+        <a href="https://www.linkedin.com/in/nasean-lawson">
+          <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-11" src="/linkedin.svg" alt="linkedin"/>
+        </a>          
       </div>            
     </motion.footer>
   );

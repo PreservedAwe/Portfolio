@@ -1,7 +1,9 @@
 'use client'; 
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 import {motion} from "framer-motion";
+
+
 
 const links = [
     { href: '/about', text: 'About' },
@@ -13,12 +15,15 @@ const links = [
 
 
 export default function Navbar() {
+
+    const router = useRouter();
+
     return (
         <nav className='size-full flex justify-around items-center'>
             {links.map((link, index) => (
-                <Link key={index} href={link.href} id={link.href.slice(1)} className="bg-black text-white rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-black transition ease-in-out duration-300 ">
+                <motion.a whileHover={{scale: 1.2, rotate: 360, transition: { duration: 1 }}} whileTap={{ scale: 0.8 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-black text-white rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-black ">
                     {link.text}
-                </Link>
+                </motion.a>
             ))}
         </nav>
     );
