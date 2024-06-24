@@ -1,13 +1,15 @@
 'use client'; 
 
 import {useState} from "react";
-import {motion} from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
+import * as Text from "../text/Text";
 
 export default function ContactForm() {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [response, setResponse] = useState(false);
 
     const submitMessage = async (e: React.FormEvent) => {
         
@@ -25,7 +27,8 @@ export default function ContactForm() {
         });
     
         if(res.ok) {
-            alert("Message Sent");
+            setResponse(true);
+            setTimeout(() => {setResponse(false)}, 1500);
         }  
     
     }     
@@ -39,6 +42,9 @@ export default function ContactForm() {
             <label htmlFor="message">Message:</label>
             <input onChange={(e) => setMessage(e.target.value)} className="text-black" type="text" id="message" name="message"/>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-white text-black my-3 rounded-md shadow-md p-2">Send Message!</motion.button> 
+            <AnimatePresence>
+                {response && (<Text.AlertText text="Message Sent" />)}
+            </AnimatePresence>
         </motion.form> 
     );
 }

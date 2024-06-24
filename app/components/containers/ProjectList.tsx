@@ -19,7 +19,7 @@ export default function ProjectList({projects}: ProjectList) {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="flex flex-wrap justify-center gap-3">
           {
             projects.map((pro) => (
-              <div key={pro.id} className="flex flex-col bg-black text-white rounded shadow-md border-white p-7 hover:bg-white hover:text-black transition ease-in-out">
+              <div key={pro.id} className="flex flex-col bg-black text-white rounded shadow-md border-white border-2 p-7 hover:bg-white hover:text-black transition ease-in-out size-60 text-center ">
                 <div>
                   <h1 className="font-bold text-center my-5">Project Name:{pro.project_name}</h1>
                 </div>

@@ -18,9 +18,8 @@ const MainContent = async () => {
 
   return(
     <main className={ContentType.mainContent}>
-      <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden">
+      <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden gap-3">
         <Text.LText text="These are projects that I have done"/>
-        <h1 className="text-center text-5xl font-bold text-white mb-4"></h1>
         <ProjectList projects={projects} />
       </div>
     </main>
