@@ -24,8 +24,14 @@ export function SText({text}: TextProps) {
     );
 }
 
-export function AlertText({text}: TextProps) {
+export function GreenAlertText({text}: TextProps) {
     return (
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y:0 }} exit={{ opacity: 0, y: -10 }} transition={{ ease: "easeInOut", duration: 0.3 }} className="text-green-500 font-bold text-l text-center" >{text}</motion.h1>
+    );
+}
+
+export function RedAlertText({text}: TextProps) {
+    return (
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y:0 }} exit={{ opacity: 0, y: -10 }} transition={{ ease: "easeInOut", duration: 0.3 }} className="text-red-500 font-bold text-l text-center" >{text}</motion.h1>
     );
 }

@@ -21,7 +21,7 @@ export function Emeralds(props) {
 
   return (
     <group {...props} dispose={null}>
-      <motion.group initial={{ z: -300 }} animate={{ z: 0 }} transition={{ ease: "easeIn", duration: 3 }} ref={modelRef} position={[0, 0, 0]} scale={[0.7, 0.7, 0.7]} rotation={[Math.PI / 2, 0, 0]}>
+      <motion.group initial={{ z: -300 }} animate={{ z: 0 }} transition={{ ease: "easeIn", duration: 1.5 }} ref={modelRef} position={[0, 0, 0]} scale={[0.7, 0.7, 0.7]} rotation={[Math.PI / 2, 0, 0]}>
         <mesh castShadow receiveShadow geometry={nodes.Gem_1.geometry} material={materials.green} />
         <mesh
           castShadow

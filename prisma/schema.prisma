@@ -9,9 +9,10 @@ datasource db {
 
 model project {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
-  github       String
-  language     String
-  project_name String
+  github_link  String
+  description  String
+  heading      String
+  name         String
 }
 
 model hobby {
