@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={'grid grid-cols-12 grid-rows-12 bg-main-theme h-screen w-screen' + inter.className}>
+      <body className={'grid grid-cols-12 grid-rows-12 bg-main-theme h-screen w-screen overflow-hidden' + inter.className}>
         {children}
       </body>
     </html>

@@ -17,7 +17,7 @@ export default function Footer() {
   };
 
   return (
-    <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center m-4">
+    <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center m-4 gap-3">
       <div className="">
         <Text.SText text="@2024"/> 
       </div>
@@ -27,7 +27,7 @@ export default function Footer() {
           {isVisible && (<TechModal />)}
         </a>
       </div>
-      <div className="flex justify-center bg-white rounded-lg p-2">
+      <div className="flex justify-center bg-white rounded-lg p-2 gap-2">
         <a href="https://www.youtube.com/watch?v=DJaZUFK8Kv4">
           <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-11" src="/youtube.svg" alt="youtube"/>
         </a>
