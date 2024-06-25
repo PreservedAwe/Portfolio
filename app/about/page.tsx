@@ -13,7 +13,7 @@ const MainContent = () => {
         <Text.MText text="My name is Nasean. I am a computer programmer. I have messed around and worked with multiple languages.
           Some such as c#, cobol,javascript, python, c++, ruby, etc.
           I also play the guitar and make my own songs and covers."/>
-        <a className="hover:-translate-y-1 transition ease-in-out bg-black border-2 border-white rounded-lg mx-32 p-3" href="/resume.pdf"><Text.MText text="Click this link to download a pdf of my resume"/></a>
+        <a className="hover:-translate-y-1 transition ease-in-out bg-black border-2 border-white rounded-lg mx-32 p-5 flex justify-center" href="/resume.pdf"><Text.MText text="Click this link to download a pdf of my resume"/></a>
       </div>
     </main>
   );

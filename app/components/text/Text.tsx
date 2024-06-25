@@ -1,10 +1,10 @@
 'use client';
 
-import {motion, AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 
 interface TextProps {
     text: string;
-  }
+}
 
 export function LText({text}: TextProps) {
     return (

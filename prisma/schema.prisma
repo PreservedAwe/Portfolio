@@ -7,15 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model project {
+model projects {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   github_link  String
   description  String
-  heading      String
   name         String
 }
 
-model hobby {
+model hobbies {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   type         String
   bio          String

@@ -10,7 +10,7 @@ const MainContent = async () => {
 
   async function callContent() {
     const prisma = new PrismaClient;
-    const allProjects = await prisma.project.findMany({take: 5});
+    const allProjects = await prisma.projects.findMany({take: 5});
     return allProjects;
   }
 
