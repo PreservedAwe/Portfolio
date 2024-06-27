@@ -3,8 +3,6 @@
 import { useRouter } from 'next/navigation'
 import {motion} from "framer-motion";
 
-
-
 const links = [
     { href: '/about', text: 'About' },
     { href: '/contact', text: 'Contact' },
@@ -12,7 +10,6 @@ const links = [
     { href: '/projects', text: 'Projects' },
     { href: '/', text: 'Home' },
 ];
-
 
 export default function Navbar() {
 

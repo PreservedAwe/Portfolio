@@ -10,7 +10,7 @@ export default function Modal() {
                 <Text.MText text="Model Credits:"/>
                 <Text.SText text="(Emerald Chaos (https://skfb.ly/DZEJ) by torchwurm is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."/>
                 <Text.MText text="Tech Stack:"/>
-                <div className="flex flex-wrap gap-2 overflow-y-auto overflow-x-hidden justify-center items-center bg-white rounded-lg mx-8 my-2 p-4 size-7/12">
+                <div className="flex flex-wrap gap-2 overflow-y-auto overflow-x-hidden justify-center items-center bg-white rounded-lg mx-8 my-2 p-4 size-7/12 border-4 border-blue-500">
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20" src="/tailwindcss.svg" alt="tailwindcss" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20" src="/mongo.svg" alt="mongodb" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20" src="/prisma.svg" alt="prisma" />

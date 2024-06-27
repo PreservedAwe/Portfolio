@@ -13,10 +13,3 @@ model projects {
   description  String
   name         String
 }
-
-model hobbies {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  type         String
-  bio          String
-  name         String
-}
