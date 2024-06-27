@@ -2,7 +2,7 @@
 
 import * as Text from "../text/Text";
 import TechModal from "../containers/TechModal";
-import {motion} from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 import {useState} from 'react';
 
 
@@ -24,7 +24,10 @@ export default function Footer() {
       <div className="">
         <a onClick={handleClick} href="credits">
           <Text.SText text="Click Me For Credits and Tech Stack Used:"/> 
-          {isVisible && (<TechModal />)}
+          <AnimatePresence>
+            {isVisible && (<TechModal />)}
+          </AnimatePresence>
+
         </a>
       </div>
       <div className="flex justify-center bg-white rounded-lg border-black border-2 p-2 gap-2">

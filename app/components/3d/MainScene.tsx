@@ -2,17 +2,18 @@
 
 import {Canvas} from "@react-three/fiber";
 import {Environment} from "@react-three/drei";
-import {Emeralds} from "./EmeraldsModel";
+import Emeralds from "./EmeraldsModel";
+import Vader from "./VaderTieModel";
+
 
 export default function Scene() {
-
-
 
     return (
         <div className="fixed top-0 left-0 w-screen h-screen -z-10">
             <Canvas>
-                <Environment preset="studio"/>
+                <Environment preset="park"/>
                 <Emeralds/>
+                <Vader/>
             </Canvas>
         </div>
     );
