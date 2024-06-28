@@ -22,7 +22,7 @@ export default function Navbar() {
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault(); 
         setStatus(!status); 
-      };
+    };
 
     useEffect(() => {    
         const changeReturn = () => {

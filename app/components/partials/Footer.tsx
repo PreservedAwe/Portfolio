@@ -4,8 +4,7 @@ import * as Text from "../text/Text";
 import TechModal from "../containers/TechModal";
 import {motion, AnimatePresence} from "framer-motion";
 import {useState} from 'react';
-
-
+import Link from 'next/link';
 
 export default function Footer() {
 
@@ -19,7 +18,7 @@ export default function Footer() {
   return (
     <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center m-4 gap-3">
       <div className="">
-        <Text.SText text="@2024"/> 
+        <Link href="/admin/login"><Text.SText text="@2024"/></Link>
       </div>
       <div className="">
         <a onClick={handleClick} href="credits">
@@ -27,7 +26,6 @@ export default function Footer() {
           <AnimatePresence>
             {isVisible && (<TechModal />)}
           </AnimatePresence>
-
         </a>
       </div>
       <div className="flex justify-center bg-white rounded-lg border-black border-2 p-2 gap-2">

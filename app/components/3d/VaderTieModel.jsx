@@ -13,7 +13,7 @@ import {motion} from "framer-motion-3d";
 export default function Model(props) {
 const { nodes, materials } = useGLTF('/vaders_tie.glb')
 return (
-    <motion.group initial={{ y: -1000 }} animate={{ y: 1000 }} transition={{ ease: "easeIn", duration: 12, repeat: Infinity }} {...props} dispose={null} position={[0, 0, -400]} scale={[0.2, 0.2, 0.2]} rotation={[0.2, 0, 0]}>
+    <motion.group initial={{y: 1000, x: 1900}} animate={{y: -500, x: -1000}}  transition={{ ease: "linear", duration: 7, repeat: Infinity }} {...props} dispose={null} position={[0, 0, -400]} scale={[0.08, 0.08, 0.08 ]} rotation={[1.2, -0.9, 0.6]}>
         <group rotation={[-Math.PI / 2, 0, 0]}>
             <group rotation={[Math.PI / 2, 0, 0]}>
                 <group position={[0.002, 0.065, -449.464]}>

@@ -26,7 +26,7 @@ export async function POST(request) {
         return new Response('Success!', {status: 200});
 
     } catch (error) {
-        return new Response('Bad!', {status: 400});
+        return new Response('Bad Email Request', {status: 400});
     }
 
 }
