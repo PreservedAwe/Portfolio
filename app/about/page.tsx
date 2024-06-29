@@ -3,6 +3,7 @@ import Footer from "../components/partials/Footer";
 import ContentType from "../lib/classes";
 import * as Text from "../components/text/Text";
 import MainScene from "../components/3d/MainScene";
+import { Suspense } from "react";
 
 const MainContent = () => {
   return(
@@ -22,10 +23,12 @@ const MainContent = () => {
 export default function Page() {
   return (
     <>
-      <MainScene/>
       <Header/>
       <MainContent/>
       <Footer/>
+      <Suspense fallback={null}>
+        <MainScene/>
+      </Suspense>      
     </>
   );
 }

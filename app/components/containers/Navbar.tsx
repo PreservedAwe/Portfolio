@@ -16,7 +16,7 @@ export default function Navbar() {
 
     const router = useRouter();
 
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(0);
     const [status, setStatus] = useState(false);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -25,6 +25,8 @@ export default function Navbar() {
     };
 
     useEffect(() => {    
+        setWidth(window.innerWidth);
+        
         const changeReturn = () => {
             setWidth(window.innerWidth);
         }

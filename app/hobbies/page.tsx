@@ -4,6 +4,7 @@ import ContentType from "../lib/classes";
 import * as Text from "../components/text/Text";
 import HobbyList from "../components/containers/HobbyList";
 import MainScene from "../components/3d/MainScene";
+import { Suspense } from "react";
 
 const MainContent = async () => {
 
@@ -20,10 +21,12 @@ const MainContent = async () => {
 export default function Page() {
   return (
     <>
-      <MainScene/>
       <Header/>
       <MainContent/>
       <Footer/>
+      <Suspense fallback={null}>
+        <MainScene/>
+      </Suspense>
     </>
   );
 }
