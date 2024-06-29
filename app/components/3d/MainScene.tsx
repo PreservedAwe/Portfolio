@@ -2,8 +2,8 @@
 
 import {Canvas} from "@react-three/fiber";
 import {Environment} from "@react-three/drei";
-import Emeralds from "./EmeraldsModel";
-import Vader from "./VaderTieModel";
+import Emeralds from "./models/EmeraldsModel";
+import Vader from "./models/VaderTieModel";
 
 
 export default function Scene() {

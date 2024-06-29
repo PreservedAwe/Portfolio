@@ -1,4 +1,4 @@
-import Loader from "./components/partials/Loader";
+import Loader from "@/components/partials/Loader";
 
 export default function Loading() {
     return (

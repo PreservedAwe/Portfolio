@@ -2,7 +2,7 @@
 
 import {Canvas} from "@react-three/fiber";
 import {Environment} from "@react-three/drei";
-import Emeralds from "./EmeraldsModel";
+import Emeralds from "./models/EmeraldsModel";
 
 
 export default function Scene() {

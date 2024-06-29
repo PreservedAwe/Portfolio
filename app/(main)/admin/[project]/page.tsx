@@ -1,8 +1,10 @@
-import ContentType from "../../lib/classes";
-import * as Text from "../../components/text/Text";
-import prisma from "../../lib/prisma";
-import AdminScene from "../../components/3d/AdminScene";
+import ContentType from "@/lib/classes";
+import * as Text from "@/components/text/Text";
+import prisma from "@/lib/prisma";
+import AdminScene from "@/components/3d/AdminScene";
 import { Suspense } from "react";
+import ValidateAdmin from "@/lib/validateAdmin";
+import AdminChecker from "@/components/session/AdminChecker";
 
 const MainContent = async ({ params }: { params: { project: string } }) => {
 
@@ -28,12 +30,16 @@ const MainContent = async ({ params }: { params: { project: string } }) => {
 }
 
 export default function Page({ params }: { params: { project: string } }) {
-return (
-    <>
-        <MainContent params={params} />
-        <Suspense fallback={null}>
-            <AdminScene/>
-        </Suspense>
-    </>
-);
+
+    ValidateAdmin.checkIfNotAdmin();
+
+    return (
+        <>
+            <MainContent params={params} />
+            <AdminChecker/>
+            <Suspense fallback={null}>
+                <AdminScene/>
+            </Suspense>
+        </>
+    );
 }

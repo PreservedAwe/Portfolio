@@ -9,11 +9,7 @@ interface Project {
     github_link: string,
   }
 
-  interface ProjectList {
-    projects: Array<Project>,
-  }
-
-export default function ProjectList({projects}: ProjectList) {
+export default function ProjectList({projects}: {projects: Array<Project>}) {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="flex flex-wrap justify-center gap-3">
           {

@@ -1,9 +1,9 @@
-import Header from "../components/partials/Header";
-import Footer from "../components/partials/Footer";
-import ContentType from "../lib/classes";
-import ContactForm from "../components/containers/ContactForm";
-import * as Text from "../components/text/Text";
-import MainScene from "../components/3d/MainScene";
+import Header from "@/components/partials/Header";
+import Footer from "@/components/partials/Footer";
+import ContentType from "@/lib/classes";
+import ContactForm from "@/components/containers/ContactForm";
+import * as Text from "@/components/text/Text";
+import MainScene from "@/components/3d/MainScene";
 import { Suspense } from "react";
 
 
