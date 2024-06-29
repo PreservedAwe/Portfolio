@@ -1,12 +1,9 @@
-import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
 import LoginForm from '@/app/components/containers/LoginForm';
+import ValidateAdmin from "../../lib/validateAdmin";
 
 export default function Page() {
-
-    if(cookies().has("admin")) {
-        redirect("/admin");
-    }
+    
+    ValidateAdmin.checkIfAdmin();
     
     return (
         <LoginForm/>

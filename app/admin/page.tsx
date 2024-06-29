@@ -1,17 +1,15 @@
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import AdminScene from "../components/3d/AdminScene";
 import ContentType from "../lib/classes";
 import * as Text from "../components/text/Text";
 import { PrismaClient } from '@prisma/client';
 import ProjectListAdmin from "../components/containers/ProjectListAdmin";
 import { Suspense } from "react";
+import ValidateAdmin from "../lib/validateAdmin";
+import AdminChecker from "../components/session/AdminChecker";
 
 export default function Page() {
 
-    if(!cookies().has("admin")) {
-        redirect("/");
-    }
+    ValidateAdmin.checkIfNotAdmin();
 
     const MainContent = async () => {
 
@@ -41,6 +39,7 @@ export default function Page() {
     return (
         <>
             <MainContent/>
+            <AdminChecker/>
             <Suspense fallback={null}>
                 <AdminScene/>
             </Suspense>            

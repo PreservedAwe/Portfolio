@@ -16,3 +16,13 @@ export async function POST(request) {
         return new Response('Bad Email Request', {status: 400});
     }
 }
+
+export async function GET() {
+
+    if(cookies().has("admin")) {
+        return new Response('Cookie Present!', {status: 200});
+    }
+    else {
+        return new Response('Cookie Not Present', {status: 400});
+    }    
+}
