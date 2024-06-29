@@ -2,7 +2,7 @@ import Header from "../components/partials/Header";
 import Footer from "../components/partials/Footer";
 import ContentType from "../lib/classes";
 import * as Text from "../components/text/Text";
-import { PrismaClient } from '@prisma/client';
+import prisma from "../lib/prisma";
 import ProjectList from "../components/containers/ProjectList";
 import MainScene from "../components/3d/MainScene";
 import { Suspense } from "react";
@@ -10,7 +10,6 @@ import { Suspense } from "react";
 const MainContent = async () => {
 
   async function callContent() {
-    const prisma = new PrismaClient;
     const allProjects = await prisma.projects.findMany({take: 5});
     return allProjects;
   }
