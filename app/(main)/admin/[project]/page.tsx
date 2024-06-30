@@ -5,16 +5,30 @@ import AdminScene from "@/components/3d/AdminScene";
 import { Suspense } from "react";
 import ValidateAdmin from "@/lib/validateAdmin";
 import AdminChecker from "@/components/session/AdminChecker";
+import ProjectFormAdmin from "@/components/containers/ProjectFormAdmin";
 
 const MainContent = async ({ params }: { params: { project: string } }) => {
 
+    if(params.project.length != 24 ) {
+        ValidateAdmin.redirectToAdmin();
+    }
+
+    ValidateAdmin.checkIfNotAdmin();
+    
     async function callContent() {
         const project = await prisma.projects.findUnique({
             where: {
                 id: params.project,
             }
         });
-        return project;
+
+        if(project != null) {
+            return project;
+        }
+        else{
+            ValidateAdmin.redirectToAdmin();
+            return {id: "", name: "", description: "", github_link: ""};
+        }
     }
 
     const project = await callContent();
@@ -23,7 +37,7 @@ const MainContent = async ({ params }: { params: { project: string } }) => {
         <main className={ContentType.adminContent}>
             <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden gap-3">
                 <Text.LText text={("This is project with name: " + project?.name)}/>
-
+                <ProjectFormAdmin project={project} />
             </div>
         </main>
     );

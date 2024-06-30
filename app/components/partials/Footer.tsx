@@ -1,7 +1,7 @@
 "use client"; 
 
-import * as Text from "../text/Text";
-import TechModal from "../containers/TechModal";
+import * as Text from "@/components/text/Text";
+import TechModal from "@/components/containers/TechModal";
 import {motion, AnimatePresence} from "framer-motion";
 import {useState} from 'react';
 import Link from 'next/link';

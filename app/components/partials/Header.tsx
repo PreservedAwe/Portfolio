@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "../containers/Navbar";
+import Navbar from "@/components/containers/Navbar";
 import {motion} from "framer-motion";
 
 export default function Header() {

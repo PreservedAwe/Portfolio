@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import prisma from "@/lib/prisma";
 import ValidateAdmin from "@/lib/validateAdmin";
 import AdminChecker from "@/components/session/AdminChecker";
+import AdminButton from "@/components/buttons/AdminButton";
 
 export default function Page() {
 
@@ -24,12 +25,8 @@ export default function Page() {
         <main className={ContentType.adminContent}>
             <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden gap-3">
                 <Text.LText text="Here are all the projects ready to be edited"/>
+                <AdminButton/>
                 <ProjectListAdmin projects={projects} />
-                <a href="/"><Text.MText text="Click Here to go back Home"/></a>
-                <hr />
-                <hr />
-                <hr />
-                <a href="/"><Text.MText text="Click Here to logout."/></a>
             </div>
         </main>
         );

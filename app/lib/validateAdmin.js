@@ -13,7 +13,11 @@ const ValidateAdmin = {
         if(cookies().has("admin")) {
             redirect("/admin");
         }
-    }    
+    },
+        
+    redirectToAdmin: () => {
+        redirect("/admin");
+    }  
 }
 
 export default ValidateAdmin

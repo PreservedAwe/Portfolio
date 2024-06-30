@@ -17,7 +17,7 @@ export default function AdminChecker() {
                 router.push("/");
             }  
 
-        }, 60000);
+        }, 120000);
 
         return () => {clearInterval(intId)};
     });

@@ -1,8 +1,8 @@
 'use client'; 
 
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import {motion, AnimatePresence, useAnimate} from "framer-motion";
-import * as Text from "../text/Text";
+import * as Text from "@/components/text/Text";
 
 export default function ContactForm() {
 

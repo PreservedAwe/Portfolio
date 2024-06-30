@@ -1,7 +1,7 @@
 'use client';
 
 import {motion} from "framer-motion";
-import * as Text from "../../components/text/Text";
+import * as Text from "@/components/text/Text";
 
 interface HobbyArgs {
   heading: string,
