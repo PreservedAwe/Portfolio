@@ -12,8 +12,6 @@ const MainContent = async ({ params }: { params: { project: string } }) => {
     if(params.project.length != 24 ) {
         ValidateAdmin.redirectToAdmin();
     }
-
-    ValidateAdmin.checkIfNotAdmin();
     
     async function callContent() {
         const project = await prisma.projects.findUnique({

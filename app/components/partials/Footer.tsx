@@ -1,10 +1,12 @@
 "use client"; 
 
 import * as Text from "@/components/text/Text";
-import TechModal from "@/components/containers/TechModal";
 import {motion, AnimatePresence} from "framer-motion";
 import {useState} from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const TechModal = dynamic(() => import("@/components/containers/TechModal"));
 
 export default function Footer() {
 

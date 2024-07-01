@@ -4,13 +4,10 @@ import * as Text from "@/components/text/Text";
 import ProjectListAdmin from "@/components/containers/ProjectListAdmin";
 import { Suspense } from "react";
 import prisma from "@/lib/prisma";
-import ValidateAdmin from "@/lib/validateAdmin";
 import AdminChecker from "@/components/session/AdminChecker";
 import AdminButton from "@/components/buttons/AdminButton";
 
 export default function Page() {
-
-    ValidateAdmin.checkIfNotAdmin();
 
     const MainContent = async () => {
 

@@ -49,7 +49,7 @@ export default function ContactForm() {
             <label htmlFor="name"> <Text.MText text="Name:"/> </label>
             <input value={name} onChange={(e) => setName(e.target.value)} className="text-black" type="text" id="fname" name="fname" required/>
             <label htmlFor="message"> <Text.MText text="Message:"/> </label>
-            <input value={message} onChange={(e) => setMessage(e.target.value)} className="text-black" type="text" id="message" name="message" required/>
+            <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="text-black" rows={5} cols={22} id="message" name="message" required/>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-white border-black border-2 text-black my-3 rounded-md shadow-md p-2">Send Message!</motion.button> 
             <AnimatePresence>        
                 {(response == 'pass') && (<Text.GreenAlertText text="Message Sent" />)}

@@ -49,7 +49,7 @@ export default function LoginForm() {
             <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="bg-black size-10/12 rounded-md flex justify-start p-10 overflow-y-auto overflow-x-hidden border-white border-4 gap-2">
                 <motion.form initial={{ opacity: 0 , rotate: 100}} animate={{ opacity: 1, rotate: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} onSubmit={submitMessage} className="size-full flex flex-col items-center">
                     <label htmlFor="name"> <Text.MText text="Code:"/> </label>
-                    <input value={code} onChange={(e) => setCode(e.target.value)} className="text-black size-3/12" type="text" id="code" name="code" required/>
+                    <input value={code} onChange={(e) => setCode(e.target.value)} className="text-black" type="text" id="code" name="code" required/>
                     <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-white border-black border-2 text-black my-5 rounded-md shadow-md p-2">Login</motion.button>
                     <motion.button onClick={() => {router.push("/");}} whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" className="bg-white border-black border-2 text-black my-5 rounded-md shadow-md p-2">Go Back</motion.button>
                     <AnimatePresence>        

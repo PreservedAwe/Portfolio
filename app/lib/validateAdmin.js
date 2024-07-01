@@ -1,11 +1,12 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { NextResponse } from 'next/server';
 
 
 const ValidateAdmin = {
-    checkIfNotAdmin: () => {
+    checkIfNotAdmin: (hostname) => {
         if(!cookies().has("admin")) {
-            redirect("/");
+            return NextResponse.redirect(new URL('/', hostname));
         }
     },
     

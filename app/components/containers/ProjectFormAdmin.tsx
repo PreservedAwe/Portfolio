@@ -91,9 +91,9 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
             <label htmlFor="name"> <Text.MText text="Name:"/> </label>
             <input value={name} onChange={(e) => setName(e.target.value)} className="text-black" type="text" id="name" name="name" required/>
             <label htmlFor="github_link"> <Text.MText text="Github Link:"/> </label>
-            <input value={github_link} onChange={(e) => setGithub_link(e.target.value)} className="text-black" type="text" id="github_link" name="github_link" required/>
+            <textarea value={github_link} onChange={(e) => setGithub_link(e.target.value)} className="text-black" rows={2} cols={22} id="github_link" name="github_link" required/>
             <label htmlFor="description"> <Text.MText text="Description:"/> </label>
-            <input value={description} onChange={(e) => setDescription(e.target.value)} className="text-black" type="text" id="description" name="description" required/>
+            <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="text-black" rows={5} cols={22} id="description" name="description" required/>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-green-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Update Project</motion.button>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={deleteProject} className="bg-red-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Delete Project</motion.button> 
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button> 
