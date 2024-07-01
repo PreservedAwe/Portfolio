@@ -34,7 +34,7 @@ export default function AdminButton() {
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin/new");}} className="bg-green-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2 size-28">Create New Project</motion.button> 
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/");}} className="bg-white border-black border-2 text-black my-3 rounded-md shadow-md p-2 size-28">Go Home</motion.button> 
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={logoutAdmin} className="bg-red-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2 size-28">Logout and Go Home</motion.button> 
-            <div className="flex flex-wrap justify-center size-full gap-1">
+            <div className="flex flex-col justify-center items-center size-full gap-1">
                 <AnimatePresence>        
                     {(response == 'pass') && (<Text.GreenAlertText text="Sign Out Successful" />)}
                     {(response == 'fail') && (<Text.RedAlertText text="Sign Out Failure" />)}

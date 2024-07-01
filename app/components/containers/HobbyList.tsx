@@ -13,7 +13,7 @@ interface HobbyArgs {
 
 function Hobby({heading, pic_url, pic_alt, description}: HobbyArgs) {
   return(
-    <motion.div animate={{ rotate: [-3, 3] }} transition={{ repeat: Infinity, duration: 1, repeatType: "reverse", ease: "linear" }} className="shrink-0 flex flex-col bg-black rounded-lg border-2 border-white size-80 m-3 gap-2 p-3 overflow-x-hidden overflow-y-auto">
+    <motion.div animate={{ rotate: [-3, 3] }} transition={{ repeat: Infinity, duration: 1, repeatType: "reverse", ease: "linear" }} key={("hobby:" + heading)} className="shrink-0 flex flex-col bg-black rounded-lg border-2 border-white size-80 m-3 gap-2 p-3 overflow-x-hidden overflow-y-auto">
       <div className="flex justify-center">
         <Text.MText text={heading}/>
       </div>      

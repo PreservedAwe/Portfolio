@@ -16,7 +16,7 @@ export function MText({text}: {text: string}) {
 
 export function SText({text}: {text: string}) {
     return (
-        <motion.h1 initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} whileHover={{ scale: 0.9 }} className="text-white font-bold text-sm text-center" >{text}</motion.h1>
+        <motion.h1 initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} whileHover={{ scale: 0.9 }} className="text-white font-bold text-sm text-center break-words" >{text}</motion.h1>
     );
 }
 
