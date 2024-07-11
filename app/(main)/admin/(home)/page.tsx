@@ -21,7 +21,7 @@ export default function Page() {
         return(
         <main className={ContentType.adminContent}>
             <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden gap-3">
-                <Text.LText text="Here are all the projects ready to be edited"/>
+                <Text.LText text="All Projects are Editable Here"/>
                 <AdminButton/>
                 <ProjectListAdmin projects={projects} />
             </div>

@@ -11,7 +11,7 @@ const MainContent = () => {
   return(
     <main className={ContentType.mainContent}>
       <div className="flex justify-center max-h-full max-w-full overflow-auto">
-        <Text.LText text="Welcome To My Website. Take a look around and see what I do"/>
+        <Text.LText text="Welcome! Take a look around to see what I do"/>
       </div>
     </main>
   );

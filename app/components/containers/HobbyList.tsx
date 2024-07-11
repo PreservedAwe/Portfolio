@@ -13,7 +13,7 @@ interface HobbyArgs {
 
 function Hobby({heading, pic_url, pic_alt, description}: HobbyArgs) {
   return(
-    <motion.div animate={{ rotate: [-3, 3] }} transition={{ repeat: Infinity, duration: 1, repeatType: "reverse", ease: "linear" }} key={("hobby:" + heading)} className="shrink-0 flex flex-col bg-black rounded-lg border-2 border-white size-80 m-3 gap-2 p-3 overflow-x-hidden overflow-y-auto">
+    <motion.div animate={{ rotate: [-3, 3] }} transition={{ repeat: Infinity, duration: 1, repeatType: "reverse", ease: "linear" }} className="shrink-0 flex flex-col bg-black rounded-lg border-2 border-white size-80 m-3 gap-2 p-3 overflow-x-hidden overflow-y-auto">
       <div className="flex justify-center">
         <Text.MText text={heading}/>
       </div>      
@@ -67,7 +67,7 @@ export default function HobbyList() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="flex justify-start gap-3 overflow-x-auto overflow-y-auto">
       {
         hobbies.map((hob) => (
-          <Hobby heading={hob.heading} pic_url={hob.pic_url} pic_alt={hob.pic_alt} description={hob.description} />
+          <Hobby key={("hobby:" + hob.heading)} heading={hob.heading} pic_url={hob.pic_url} pic_alt={hob.pic_alt} description={hob.description} />
         ))
       }
     </motion.div>

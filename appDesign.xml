@@ -8,7 +8,7 @@
             <DB-ORM>Prisma</DB-ORM>
         </Needed-Requirements>
         <Extra-Requirements>
-            
+            <Framer-Motion></Framer-Motion>
         </Extra-Requirements>
     </Requirements>
 </Personal-Website-Design>

@@ -31,7 +31,7 @@ export default function Footer() {
         </a>
       </div>
       <div className="flex justify-center bg-white rounded-lg border-black border-2 p-2 gap-2">
-        <a href="https://www.youtube.com/watch?v=DJaZUFK8Kv4">
+        <a href="https://www.youtube.com/channel/UCvhHoV52e1Y1UuS411Jmc9w">
           <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-11" src="/youtube.svg" alt="youtube"/>
         </a>
         <a href="https://github.com/PreservedAwe">

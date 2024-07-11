@@ -11,7 +11,7 @@ const MainContent = () => {
 return(
     <main className={ContentType.mainContent}>
         <div className="flex justify-center max-h-full max-w-full overflow-auto">
-            <Text.LText text="Page Is Not Found"/>
+            <Text.LText text="Page Not Found"/>
         </div>
     </main>
 );

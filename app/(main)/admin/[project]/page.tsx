@@ -34,7 +34,7 @@ const MainContent = async ({ params }: { params: { project: string } }) => {
     return(
         <main className={ContentType.adminContent}>
             <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden gap-3">
-                <Text.LText text={("This is project with name: " + project?.name)}/>
+                <Text.LText text={("Edit Project@: " + project?.name)}/>
                 <ProjectFormAdmin project={project} />
             </div>
         </main>
