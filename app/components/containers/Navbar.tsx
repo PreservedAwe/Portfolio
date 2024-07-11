@@ -34,7 +34,7 @@ export default function Navbar() {
         window.addEventListener('resize', changeReturn);
 
         return () => {window.removeEventListener('resize', changeReturn)};
-    })
+    }, [])
 
     return (
         <>
