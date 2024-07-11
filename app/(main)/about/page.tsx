@@ -10,7 +10,7 @@ const MainContent = () => {
     <main className={ContentType.mainContent}>
       <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden gap-5">
         <Suspense fallback={<Text.SText text="Loading video........"/>}>
-          <iframe  className="place-self-center" width="560" height="315" src="https://www.youtube.com/embed/_uL_b5Ll9RA?si=xflqfPVJO3ywBbU2" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowFullScreen" ></iframe>
+          <iframe className="aspect-video place-self-center" width="426" height="240" src="https://www.youtube.com/embed/_uL_b5Ll9RA?si=xflqfPVJO3ywBbU2" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;" allowFullScreen ></iframe>
         </Suspense>
         <Text.LText text="Meet Nasean"/>
         <Text.MText text="Watch this video for a small clip about me"/>
