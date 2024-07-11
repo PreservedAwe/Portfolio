@@ -2,7 +2,6 @@
 
 import {motion} from "framer-motion";
 import * as Text from "@/components/text/Text";
-import Image from 'next/image';
 
 interface HobbyArgs {
   heading: string,
@@ -19,13 +18,7 @@ function Hobby({heading, pic_url, pic_alt, description}: HobbyArgs) {
         <Text.MText text={heading}/>
       </div>      
       <div className="flex justify-center">
-        <Image 
-          src={pic_url}
-          width={500}
-          height={500}
-          alt={pic_alt}
-          className="size-40 w-full border-white border-2"
-        />
+        <img src={pic_url} alt={pic_alt} className="size-40 w-full border-white border-2"/>
       </div>      
       <div className="flex justify-center">
         <h1 className="text-center text-white">{description}</h1>
