@@ -4,8 +4,6 @@ export async function POST(request) {
 
     const messageData = await request.json();
 
-    console.log("message sending...");
-
     const transporter = Nodemailer.createTransport({
         service: 'Yahoo',
         auth: {
