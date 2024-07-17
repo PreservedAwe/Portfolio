@@ -8,6 +8,7 @@ import { Suspense } from "react";
 
 
 const MainContent = () => {
+
   return(
     <main className={ContentType.mainContent}>
       <div className="flex justify-center max-h-full max-w-full overflow-auto">
