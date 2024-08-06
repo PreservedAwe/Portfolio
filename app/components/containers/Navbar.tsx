@@ -54,8 +54,8 @@ export default function Navbar() {
             }
             {
                 width < 480 && (
-                    <div className='flex justify-center items-center size-full'>
-                        <a onClick={handleClick} href="menus" className='relative'><motion.img animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} className='size-16' src="/menu.svg" alt="menu"/></a>
+                    <div className='flex justify-end items-center size-full'>
+                        <a onClick={handleClick} href="menus" className='relative'><motion.img animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} className='size-24' src="/menu.svg" alt="menu"/></a>
                         <AnimatePresence>
                             {
                                 status == true && (
