@@ -59,7 +59,7 @@ export default function Navbar() {
                         <AnimatePresence>
                             {
                                 status == true && (
-                                <motion.div onClick={() => {setStatus(!status);}} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.3 }} className="bg-black bg-opacity-25 backdrop-blur-sm fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-20">
+                                <motion.div onClick={() => {setStatus(!status);}} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ ease: "easeIn", duration: 0.3 }} className="bg-black bg-opacity-20 backdrop-blur-md fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-20">
                                 <nav className='size-full flex flex-col justify-around items-center gap-2'>
                                     {links.map((link, index) => (
                                         <motion.a whileHover={{scale: 1.2, rotate: 360, transition: { duration: 1 }}} whileTap={{ scale: 0.8 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-black text-white rounded-md border-white border px-2 py-1 hover:bg-white hover:text-black hover:border-black ">
