@@ -32,6 +32,12 @@ export default function HobbyList() {
   //Hobbies
   const hobbies: Array<HobbyArgs> = [
     {
+      heading: "Coding",
+      pic_url: "/hobbies/coding.png",
+      pic_alt: "coding pic",
+      description: "I enjoy coding in general, I like to take in alot of coding related topics like youtube videos from 'Bro Code', 'Low Level Learning', etc........ It's very interesting in seeing what makes an application tick, and how I can learn from it",
+    },  
+    {
       heading: "Gaming",
       pic_url: "/hobbies/gaming.png",
       pic_alt: "gaming pic",
