@@ -15,7 +15,7 @@ const MainContent = () => {
     <main className={ContentType.mainContent}>
       <div className="flex flex-col max-h-full max-w-full overflow-y-auto overflow-x-hidden text-white rounded border-white p-14 gap-3">
         <Text.LText text="Send me a message here or email@:"/>
-        <Text.MText text="nasean.calm@gmail.com"/>
+        <Text.MText text="naseanlawson@outlook.com"/>
         <ContactForm />
       </div>
     </main>
