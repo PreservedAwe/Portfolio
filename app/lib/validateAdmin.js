@@ -24,6 +24,10 @@ const ValidateAdmin = {
         }
     },
 
+    redirectToAdmin: () => {
+        redirect('/admin');
+    }
+
 }
 
 export default ValidateAdmin
