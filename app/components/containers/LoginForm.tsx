@@ -32,6 +32,7 @@ export default function LoginForm() {
     
         if(res.ok) {
             setResponse('pass');
+            router.refresh();
             setTimeout(() => {
                 setResponse(''); 
                 router.push("/admin");

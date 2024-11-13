@@ -14,11 +14,10 @@ export default function AdminChecker() {
             const res = await fetch(origin + "/api/sign-in");
 
             if(!res.ok) {
-                alert("admin session expired");
                 router.push("/");
             }  
 
-        }, 120000);
+        }, 120000); //2 minutes
 
         return () => {clearInterval(intId)};
     });

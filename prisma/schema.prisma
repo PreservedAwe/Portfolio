@@ -13,3 +13,8 @@ model projects {
   description  String
   name         String
 }
+
+model sessions {
+  client_id    String @id @map("_id")
+  createdAt    DateTime @default(now())
+}

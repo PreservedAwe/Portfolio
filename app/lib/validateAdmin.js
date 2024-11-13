@@ -1,24 +1,29 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
 
 const ValidateAdmin = {
-    checkIfNotAdmin: (hostname) => {
-        if(!cookies().has("admin")) {
+    checkIfNotAdmin: async(hostname) => {
+        const cookieString = cookies().toString();
+        const res = await fetch(process.env.HOST_NAME + "/api/sign-in", {
+            headers: { Cookie: cookieString }
+        })
+        if(!res.ok) {
             return NextResponse.redirect(new URL('/', hostname));
         }
     },
     
-    checkIfAdmin: () => {
-        if(cookies().has("admin")) {
-            redirect("/admin");
+    checkIfAdmin: async(hostname) => {
+        const cookieString = cookies().toString();
+        const res = await fetch(process.env.HOST_NAME + "/api/sign-in", {
+            headers: { Cookie: cookieString }
+        })
+        if(res.ok) {
+            redirect('/admin');
         }
     },
-        
-    redirectToAdmin: () => {
-        redirect("/admin");
-    }  
+
 }
 
 export default ValidateAdmin

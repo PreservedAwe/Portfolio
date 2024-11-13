@@ -25,6 +25,8 @@ export default function AdminButton() {
     
         if(res.ok) {
             setResponse('pass');
+            document.cookie = 'client_id=; Path=/; Expires=Thu Jan 01 1970 00:00:00 GMT;';
+            router.refresh();
             setTimeout(() => {setResponse(''); router.push("/");}, 1500);
         }     
     };
