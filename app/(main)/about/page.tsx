@@ -14,7 +14,7 @@ const MainContent = () => {
         </Suspense>
         <Text.LText text="I'm Nasean"/>
         <Text.MText text="Watch this video for a small clip about me"/>
-        <a className="hover:-translate-y-1 transition ease-in-out bg-black border-2 border-white rounded-lg mx-32 p-5 flex justify-center" href="/resume.pdf"><Text.MText text="Resume"/></a>
+        <a className="hover:-translate-y-1 transition ease-in-out bg-black border-2 border-white rounded-lg m-auto p-5 flex justify-center" href="/resume.pdf"><Text.MText text="Download Resume"/></a>
       </div>
     </main>
   );
