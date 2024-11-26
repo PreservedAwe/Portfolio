@@ -13,6 +13,8 @@ export default function Modal() {
                 <hr className="border-white border-2 w-full"/>
                 <Text.SText text="'Vader's TIE' (https://skfb.ly/6oZyL) by StarWars-Universe is licensed under CC Attribution-NonCommercial-ShareAlike (http://creativecommons.org /licenses/by-nc-sa/4.0/)"/>
                 <hr className="border-white border-2 w-full"/>
+                <Text.SText text="'X-Wing' (https://skfb.ly/6oZB9) by StarWars-Universe is licensed under CC Attribution-NonCommercial-ShareAlike (http://creativecommons.org/licenses/by-nc-sa/4.0/)."/>
+                <hr className="border-white border-2 w-full"/>
                 <hr className="border-black border-2 w-full"/>
                 <hr className="border-white border-2 w-full"/>
                 <Text.MText text="Tech Stack:"/>
