@@ -1,21 +1,32 @@
 "use client";
 
 import {motion, AnimatePresence} from "framer-motion";
+import {useState, useEffect} from 'react';
+import * as Text from "@/components/text/Text";
 
 export default function Loader() {
+
+    const [showLoader, setShowLoader] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setShowLoader(false), 3000);
+        return () => {clearTimeout(timer)};
+    })
+
     return (
-        <AnimatePresence>
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1 }} exit={{opacity: 0}} transition={{ duration: 0.2 }} className="h-screen w-screen flex justify-center items-center">
-                <img src="/loading.svg" alt="loading" className="size-96" />
+        <AnimatePresence >
+            { showLoader && (<motion.div initial={{opacity: 0}} animate={{opacity: 1 }} exit={{opacity: 0}} transition={{ duration: 0.4}} className="h-screen w-screen flex flex-col justify-center items-center bg-main-theme z-50 fixed">
+                <motion.img initial={{x: -1000}} animate={{ x: 1000 }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }} src="/loading.svg" alt="loading" className="size-96" />
+                <Text.LoadingText text="Loading..."/>
                 {
                 /* Switch Out motion.img and img based on Framer Motion's Animations. 
                     Animations = motion.img, No Animations = img
+                    <img src="/loading.svg" alt="loading" className="size-96" />
 
-                    <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 8, ease: "linear" }} src="/loading.svg" alt="loading" className="size-40" />
 
                 */
                 }
-            </motion.div>
+            </motion.div>)}
         </AnimatePresence>
     )
 }

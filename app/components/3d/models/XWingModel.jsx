@@ -15,7 +15,7 @@ const group = useRef()
 const { nodes, materials, animations } = useGLTF('/x_wing.glb')
 const { actions } = useAnimations(animations, group)
 return (
-    <motion.group initial={{ x: -11}} animate={{x: 11}} transition={{ ease: "easeInOut", duration: 9, repeat: Infinity }} ref={group} {...props} dispose={null} scale={[0.03, 0.03, 0.03 ]} position={[-4, 0, 0]} rotation={[1.2, 1.6, 0]}>
+    <motion.group initial={{ x: -20}} animate={{x: 19}} transition={{ ease: "easeInOut", duration: 9, repeat: Infinity }} ref={group} {...props} dispose={null} scale={[0.03, 0.03, 0.03 ]} position={[-4, 0, 0]} rotation={[1.2, 1.6, 0]}>
     <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
         <group name="x-wingfbx" rotation={[Math.PI / 2, 0, 0]}>

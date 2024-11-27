@@ -1,9 +1,12 @@
 import ContentType from "@/lib/classes";
 import * as Text from "@/components/text/Text";
-import AdminScene from "@/components/3d/AdminScene";
 import { Suspense } from "react";
 import AdminChecker from "@/components/session/AdminChecker";
 import ProjectCreateFormAdmin from "@/components/containers/ProjectCreateFormAdmin";
+import dynamic from 'next/dynamic';
+import Loader from "@/components/partials/Loader";
+
+const AdminScene = dynamic(() => import("@/components/3d/AdminScene"), { ssr: false });
 
 const MainContent = () => {
 
@@ -21,6 +24,7 @@ export default function Page() {
 
     return (
         <>
+            <Loader/>
             <MainContent />
             <AdminChecker/>
             <Suspense fallback={null}>

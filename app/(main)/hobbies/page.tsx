@@ -1,10 +1,13 @@
-import Header from "@/components/partials/Header";
-import Footer from "@/components/partials/Footer";
 import ContentType from "@/lib/classes";
 import * as Text from "@/components/text/Text";
 import HobbyList from "@/components/containers/HobbyList";
-import MainScene from "@/components/3d/MainScene";
 import { Suspense } from "react";
+import dynamic from 'next/dynamic';
+import Loader from "@/components/partials/Loader";
+
+const Header = dynamic(() => import("@/components/partials/Header"), { ssr: false });
+const Footer = dynamic(() => import("@/components/partials/Footer"), { ssr: false });
+const MainScene = dynamic(() => import("@/components/3d/MainScene"), { ssr: false });
 
 const MainContent = async () => {
 
@@ -21,6 +24,7 @@ const MainContent = async () => {
 export default function Page() {
   return (
     <>
+      <Loader/>
       <Header/>
       <MainContent/>
       <Footer/>

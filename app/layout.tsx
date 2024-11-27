@@ -2,6 +2,7 @@ import type { Metadata} from "next";
 import { Anybody } from "next/font/google";
 import "./globals.css";
 
+
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
 
 export const metadata: Metadata = {

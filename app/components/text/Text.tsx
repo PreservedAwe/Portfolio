@@ -31,3 +31,9 @@ export function RedAlertText({text}: {text: string}) {
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y:0 }} exit={{ opacity: 0, y: -10 }} transition={{ ease: "easeInOut", duration: 0.3 }} className="text-red-500 font-bold text-l text-center bg-red-950 border-2 border-red-500 rounded-lg p-3" >{text}</motion.h1>
     );
 }
+
+export function LoadingText({text}: {text: string}) {
+    return (
+        <motion.h1 animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} className="text-blue-500 font-bold text-2xl text-center bg-blue-950 border-2 border-blue-500 rounded-full p-3" >{text}</motion.h1>
+    );
+}
