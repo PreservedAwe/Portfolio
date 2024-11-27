@@ -34,10 +34,10 @@ export default function Page() {
 
     return (
         <>
-            <Loader/>
-            <MainContent/>
-            <AdminChecker/>
-            <Suspense fallback={null}>
+            <Suspense fallback={<Loader/>}>
+                <Loader/>
+                <MainContent/>
+                <AdminChecker/>
                 <AdminScene/>
             </Suspense>            
         </>

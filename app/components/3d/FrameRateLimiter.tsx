@@ -3,7 +3,7 @@
 import { useThree } from '@react-three/fiber';
 import {useEffect} from 'react';
 
-export default function FrameRateLimiter({ fps = 30, children }: { fps?: number, children?: React.ReactNode } = {}) {
+export default function FrameRateLimiter({ fps = 60, children }: { fps?: number, children?: React.ReactNode } = {}) {
 
 const { advance } = useThree();
 
@@ -18,8 +18,8 @@ useEffect(() => {
         const delta = currentTime - lastTime;
         
         if (delta >= (1000 / fps)) {
-            frameCount++;
             advance(currentTime, true);
+            frameCount++;
             lastTime = currentTime;
         }
 

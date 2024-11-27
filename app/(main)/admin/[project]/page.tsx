@@ -50,12 +50,12 @@ export default function Page({ params }: { params: { project: string } }) {
 
     return (
         <>
-            <Loader/>
-            <MainContent params={params} />
-            <AdminChecker/>
-            <Suspense fallback={null}>
+            <Suspense fallback={<Loader/>}>
+                <Loader/>
+                <MainContent params={params} />
+                <AdminChecker/>
                 <AdminScene/>
-            </Suspense>
+            </Suspense> 
         </>
     );
 }

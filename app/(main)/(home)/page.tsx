@@ -23,11 +23,11 @@ const MainContent = () => {
 export default function Page() {
   return (
     <>
-      <Loader/>
-      <Header/>
-      <MainContent/>
-      <Footer/>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader/>}>
+        <Loader/>
+        <Header/>
+        <MainContent/>
+        <Footer/>
         <MainScene/>
       </Suspense>
     </>

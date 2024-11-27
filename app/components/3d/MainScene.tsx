@@ -13,7 +13,7 @@ export default function Scene() {
     return (
         <div className="fixed top-0 left-0 w-screen h-screen -z-10">
             <Canvas>
-                <FrameRateLimiter fps={30}>
+                <FrameRateLimiter fps={90}>
                     <Environment preset="studio"/>
                     <Emeralds/>
                     <Vader/>

@@ -2,6 +2,7 @@ import LoginForm from '@/components/containers/LoginForm';
 import ValidateAdmin from '@/lib/validateAdmin';
 import { headers } from 'next/headers';
 import Loader from "@/components/partials/Loader";
+import { Suspense } from "react";
 
 export default async function Page() {
     const origin = async() => {
@@ -17,8 +18,10 @@ export default async function Page() {
 
     return (
         <>
-            <Loader/>
-            <LoginForm/>
+            <Suspense fallback={<Loader/>}>
+                <Loader/>
+                <LoginForm/>
+            </Suspense>     
         </>
     );
 }
