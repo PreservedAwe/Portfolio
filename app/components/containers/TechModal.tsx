@@ -18,7 +18,7 @@ export default function Modal() {
                 <hr className="border-black border-2 w-full"/>
                 <hr className="border-white border-2 w-full"/>
                 <Text.MText text="Tech Stack:"/>
-                <div className="flex flex-wrap gap-5 overflow-y-auto overflow-x-hidden justify-center items-center bg-white rounded-lg m-auto p-3 size-full border-4 border-blue-500">
+                <div className="flex flex-wrap gap-5 overflow-y-auto overflow-x-hidden justify-center items-center bg-white rounded-lg p-10 size-10/12 border-4 border-blue-500">
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/tailwindcss.svg" alt="tailwindcss" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/mongo.svg" alt="mongodb" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/prisma.svg" alt="prisma" />
