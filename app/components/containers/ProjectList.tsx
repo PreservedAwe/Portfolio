@@ -3,7 +3,7 @@
 import {motion} from "framer-motion";
 
 interface Project {
-    id: string,
+    id: number,
     name: string,
     description: string,
     github_link: string,
