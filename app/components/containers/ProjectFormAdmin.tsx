@@ -6,7 +6,7 @@ import * as Text from "@/components/text/Text";
 import { useRouter } from "next/navigation";
 
 interface Project {
-    id: number,
+    id: string,
     name: string,
     description: string,
     github_link: string,

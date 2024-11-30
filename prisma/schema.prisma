@@ -8,7 +8,7 @@ datasource db {
 }
 
 model projects {
-  id           Int      @id @default(autoincrement())
+  id           String   @id @default(uuid())
   github_link  String
   description  String
   name         String
