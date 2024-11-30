@@ -12,7 +12,9 @@ const AdminScene = dynamic(() => import("@/components/3d/AdminScene"), { ssr: fa
 
 const MainContent = async ({ params }: { params: { project: string } }) => {
 
-    if(params.project.length != 24 ) {
+    const uuidLength = 36
+
+    if(params.project.length != uuidLength ) {
         ValidateAdmin.redirectToAdmin();
     }
     
