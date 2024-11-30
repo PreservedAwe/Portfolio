@@ -23,11 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={'grid grid-cols-12 grid-rows-12  min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
+      <body className={'grid grid-cols-12 grid-rows-12 bg-hero-galaxy min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
         {children}
-        <video autoPlay loop muted className="absolute w-full h-full object-cover -z-50">
-          <source src="/outer.mp4" type="video/mp4"/>
-        </video>
       </body>
     </html>
   );

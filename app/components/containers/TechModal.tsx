@@ -20,7 +20,7 @@ export default function Modal() {
                 <Text.MText text="Tech Stack:"/>
                 <div className="flex flex-wrap gap-5 overflow-y-auto overflow-x-hidden justify-center items-center bg-white rounded-lg p-10 size-10/12 border-4 border-blue-500">
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/tailwindcss.svg" alt="tailwindcss" />
-                    <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/mongo.svg" alt="mongodb" />
+                    <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/sqlite.svg" alt="sqlite" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/prisma.svg" alt="prisma" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/nextjs.svg" alt="nextjs" />
                     <motion.img animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 7, ease: "linear" }} className="size-20 shrink-0" src="/framer.svg" alt="framer" />

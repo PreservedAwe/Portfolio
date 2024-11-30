@@ -3,18 +3,18 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model projects {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  id           Int      @id @default(autoincrement())
   github_link  String
   description  String
   name         String
 }
 
 model sessions {
-  client_id    String @id @map("_id")
+  client_id    String   @id
   createdAt    DateTime @default(now())
 }
