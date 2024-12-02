@@ -1,6 +1,6 @@
 import ContentType from "@/lib/classes";
 import * as Text from "@/components/text/Text";
-import { Suspense } from "react";
+import { Suspense, memo } from "react";
 import AdminChecker from "@/components/session/AdminChecker";
 import ProjectCreateFormAdmin from "@/components/containers/ProjectCreateFormAdmin";
 import dynamic from 'next/dynamic';
@@ -20,7 +20,7 @@ const MainContent = () => {
     );
 }
 
-export default function Page() {
+export default memo(function Page() {
 
     return (
         <>
@@ -32,5 +32,5 @@ export default function Page() {
             </Suspense>   
         </>
     );
-}
+})
 

@@ -6,9 +6,10 @@ import Emeralds from "./models/EmeraldsModel";
 import Vader from "./models/VaderTieModel";
 import XWing from "./models/XWingModel";
 import FrameRateLimiter from "./FrameRateLimiter";
+import {memo} from 'react';
 
 
-export default function Scene() {
+export default memo(function Scene() {
 
     return (
         <div className="fixed top-0 left-0 w-screen h-screen -z-10">
@@ -22,4 +23,4 @@ export default function Scene() {
             </Canvas>
         </div>
     );
-}
+})

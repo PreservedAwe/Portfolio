@@ -4,6 +4,7 @@ import HobbyList from "@/components/containers/HobbyList";
 import { Suspense } from "react";
 import dynamic from 'next/dynamic';
 import Loader from "@/components/partials/Loader";
+import {memo} from 'react';
 
 const Header = dynamic(() => import("@/components/partials/Header"), { ssr: false });
 const Footer = dynamic(() => import("@/components/partials/Footer"), { ssr: false });
@@ -21,7 +22,7 @@ const MainContent = async () => {
   );
 }
 
-export default function Page() {
+export default memo(function Page() {
   return (
     <>
       <Suspense fallback={<Loader/>}>
@@ -33,4 +34,4 @@ export default function Page() {
       </Suspense>
     </>
   );
-}
+})

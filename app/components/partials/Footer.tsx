@@ -5,10 +5,11 @@ import {motion, AnimatePresence} from "framer-motion";
 import {useState} from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import {memo} from 'react';
 
 const TechModal = dynamic(() => import("@/components/containers/TechModal"));
 
-export default function Footer() {
+export default memo(function Footer() {
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -43,4 +44,4 @@ export default function Footer() {
       </div>            
     </motion.footer>
   );
-}
+})

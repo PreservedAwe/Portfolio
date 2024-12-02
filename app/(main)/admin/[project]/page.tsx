@@ -1,12 +1,13 @@
 import ContentType from "@/lib/classes";
 import * as Text from "@/components/text/Text";
 import prisma from "@/lib/prisma";
-import { Suspense } from "react";
+import { Suspense, memo } from "react";
 import ValidateAdmin from "@/lib/validateAdmin";
 import AdminChecker from "@/components/session/AdminChecker";
 import ProjectFormAdmin from "@/components/containers/ProjectFormAdmin";
 import dynamic from 'next/dynamic';
 import Loader from "@/components/partials/Loader";
+
 
 const AdminScene = dynamic(() => import("@/components/3d/AdminScene"), { ssr: false });
 
@@ -46,7 +47,7 @@ const MainContent = async ({ params }: { params: { project: string } }) => {
     );
 }
 
-export default function Page({ params }: { params: { project: string } }) {
+export default memo(function Page({ params }: { params: { project: string } }) {
 
     ValidateAdmin.checkIfNotAdmin();
 
@@ -60,4 +61,4 @@ export default function Page({ params }: { params: { project: string } }) {
             </Suspense> 
         </>
     );
-}
+})

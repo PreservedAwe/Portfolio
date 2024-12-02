@@ -1,6 +1,7 @@
 import type { Metadata} from "next";
 import { Anybody } from "next/font/google";
 import "./globals.css";
+import LogDisabler from "@/lib/disableLog";
 
 
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={'grid grid-cols-12 grid-rows-12 bg-hero-galaxy min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
         {children}
+        <LogDisabler/>
       </body>
     </html>
   );

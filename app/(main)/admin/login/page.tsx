@@ -2,9 +2,9 @@ import LoginForm from '@/components/containers/LoginForm';
 import ValidateAdmin from '@/lib/validateAdmin';
 import { headers } from 'next/headers';
 import Loader from "@/components/partials/Loader";
-import { Suspense } from "react";
+import { Suspense, memo } from "react";
 
-export default async function Page() {
+export default memo(async function Page() {
     const origin = async() => {
         const headerList = await headers();
         
@@ -24,4 +24,4 @@ export default async function Page() {
             </Suspense>     
         </>
     );
-}
+})
