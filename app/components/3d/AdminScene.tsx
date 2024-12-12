@@ -12,8 +12,8 @@ export default memo(function Scene() {
     return (
         <div className="fixed top-0 left-0 w-screen h-screen -z-10">
             <Canvas frameloop="never">
-                <FrameRateLimiter fps={30}>
-                    <Environment preset="park"/>
+                <FrameRateLimiter fps={90}>
+                    <Environment preset="night"/>
                     <Emeralds/>
                 </FrameRateLimiter>
             </Canvas>

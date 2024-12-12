@@ -9,28 +9,24 @@ const { advance } = useThree();
 
 useEffect(() => {
 
-    const initialTime = performance.now();
+    let initialTime = performance.now();
 
-    const update = (lastTime: number) => {
-        let frameCount = 0;
-
+    const update: () => void = () => {
+        const interval = 1000 / fps;
         const currentTime = performance.now();
-        const delta = currentTime - lastTime;
+        const delta = currentTime - initialTime;
         
-        if (delta >= (1000 / fps)) {
+        if (delta >= interval) {
             advance(currentTime, true);
-            frameCount++;
-            lastTime = currentTime;
+            initialTime = currentTime;
         }
 
-        return requestAnimationFrame(() => {update(lastTime)});
-
+        requestAnimationFrame(update);
     };
-
-    const rafId = update(initialTime);
+    const rafId = requestAnimationFrame(update);
     return () => cancelAnimationFrame(rafId);
 
-}, [fps]);
+}, [fps, advance]);
 
 return children;
 }

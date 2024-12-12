@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={'grid grid-cols-12 grid-rows-12 bg-hero-galaxy min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
-        {children}
         <LogDisabler/>
+        {children}
       </body>
     </html>
   );

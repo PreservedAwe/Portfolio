@@ -16,6 +16,7 @@ export default function Loader() {
     return (
         <AnimatePresence >
             { showLoader && (<motion.div initial={{opacity: 0}} animate={{opacity: 1 }} exit={{opacity: 0}} transition={{ duration: 0.15, ease: "easeOut"}} className="h-screen w-screen flex flex-col justify-center items-center bg-main-theme z-50 fixed">
+                <motion.img initial={{y: -1000, rotate: 90}} animate={{ y: 1000 }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }} src="/loading.svg" alt="loading" className="size-96" />
                 <motion.img initial={{x: -1000}} animate={{ x: 1000 }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }} src="/loading.svg" alt="loading" className="size-96" />
                 <Text.LoadingText text="Loading..."/>
                 {
