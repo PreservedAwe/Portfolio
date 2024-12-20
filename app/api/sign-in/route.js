@@ -43,7 +43,6 @@ export async function GET(request) {
             return new Response('Session Not Present', {status: 400});
         }  
     }
-
     else {
         return new Response('Cookie Not Present', {status: 400});
     }    

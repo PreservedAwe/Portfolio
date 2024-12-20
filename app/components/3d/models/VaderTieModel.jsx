@@ -7,114 +7,70 @@ Source: https://sketchfab.com/3d-models/vaders-tie-873d6c1d5f484ef9aa0537fe749dc
 Title: Vader's TIE
 */
 
-import React, { useRef, memo } from 'react';
-import { useGLTF } from '@react-three/drei';
+import React, { useRef, useMemo, useContext, createContext } from 'react';
+import { useGLTF, Merged } from '@react-three/drei';
 import {motion} from "framer-motion-3d";
 
-export default memo(function Model(props) {
-const { nodes, materials } = useGLTF('/vaders_tie.glb')
-return (
-    <motion.group initial={{y: 1000, x: 1900}} animate={{y: -500, x: -1000}}  transition={{ ease: "linear", duration: 7, repeat: Infinity }} {...props} dispose={null} position={[0, 0, -400]} scale={[0.08, 0.08, 0.08 ]} rotation={[1.2, -0.9, 0.6]}>
+const context = createContext()
+export function InstancesV({ children, ...props }) {
+    const { nodes } = useGLTF('/vaders_tie.glb')
+    const instances = useMemo(
+        () => ({
+        Material: nodes.Material1,
+        Material1: nodes.Material10,
+        Material2: nodes.Material9,
+        Material3: nodes.Material5,
+        Material4: nodes.Material4,
+        Material5: nodes.Material14,
+        Material6: nodes.Material6,
+        Material7: nodes.Material3,
+        Material8: nodes.Material11,
+        Material9: nodes.Material12,
+        Material10: nodes.Material2,
+        Material11: nodes.Material13,
+        Material12: nodes.Material8,
+        Material13: nodes.Material7,
+        Material14: nodes.Material1_1,
+        }),
+        [nodes]
+    )
+    return (
+        <Merged meshes={instances} {...props}>
+        {(instances) => <context.Provider value={instances} children={children} />}
+        </Merged>
+    )
+}
+
+export function Vader(props) {
+    const instances = useContext(context)
+    return (
+        <motion.group initial={{y: 5, x: 11}} animate={{y: -8, x: -12}} transition={{ ease: "easeIn", duration: 9, repeat: Infinity }} {...props} dispose={null} position={[0, 0, 0]} scale={[0.0012, 0.0012, 0.0012 ]} rotation={[1.2, -0.9, 0.6]}>
         <group rotation={[-Math.PI / 2, 0, 0]}>
             <group rotation={[Math.PI / 2, 0, 0]}>
-                <group position={[0.002, 0.065, -449.464]}>
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material1.geometry}
-                        material={materials.Box08_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material10.geometry}
-                        material={materials.Bulkhead_darkbluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material9.geometry}
-                        material={materials.ChamferBox_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material5.geometry}
-                        material={materials.Circle07_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material4.geometry}
-                        material={materials.EnginGlo_engine}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material14.geometry}
-                        material={materials.Line53_solar}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material6.geometry}
-                        material={materials.Line60_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material3.geometry}
-                        material={materials.NGon03_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material11.geometry}
-                        material={materials.Object03_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material12.geometry}
-                        material={materials.Object04_gunred}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material2.geometry}
-                        material={materials.Rectangle0_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material13.geometry}
-                        material={materials.Sphere01_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material8.geometry}
-                        material={materials.Sphere03_bluehull}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material7.geometry}
-                        material={materials.Sphere04_windowblack}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Material1_1.geometry}
-                        material={materials.material}
-                        position={[-0.002, -0.065, 449.464]}
-                        rotation={[Math.PI / 2, 0, 0]}
-                    />
-                </group>
+            <group position={[0.002, 0.065, -449.464]}>
+                <instances.Material />
+                <instances.Material1 />
+                <instances.Material2 />
+                <instances.Material3 />
+                <instances.Material4 />
+                <instances.Material5 />
+                <instances.Material6 />
+                <instances.Material7 />
+                <instances.Material8 />
+                <instances.Material9 />
+                <instances.Material10 />
+                <instances.Material11 />
+                <instances.Material12 />
+                <instances.Material13 />
+                <instances.Material14
+                position={[-0.002, -0.065, 449.464]}
+                rotation={[Math.PI / 2, 0, 0]}
+                />
+            </group>
             </group>
         </group>
-    </motion.group>
-)
-})
+        </motion.group>
+    )
+}
 
 useGLTF.preload('/vaders_tie.glb')
