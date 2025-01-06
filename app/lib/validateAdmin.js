@@ -6,11 +6,15 @@ import { NextResponse, NextRequest } from 'next/server';
 const ValidateAdmin = {
     checkIfNotAdmin: async(hostname) => {
         const cookieString = cookies().toString();
+        console.log(hostname)
         const res = await fetch(hostname + "/api/sign-in", {
             headers: { Cookie: cookieString }
         })
         if(!res.ok) {
             return NextResponse.redirect(new URL('/', hostname));
+        }
+        else{
+            return NextResponse.next();
         }
     },
     
