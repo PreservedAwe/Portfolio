@@ -1,10 +1,19 @@
 import ValidateAdmin from "@/lib/validateAdmin";
+import { headers } from 'next/headers';
 import type { NextRequest } from 'next/server';
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
-    //return await ValidateAdmin.checkIfNotAdmin(request.nextUrl.origin);
-    return await ValidateAdmin.checkIfNotAdmin("https://nasean.dev:443");
+    const origin = async() => {
+        const headerList = await headers();
+        
+        const protocol = headerList.get('x-forwarded-proto') || '';
+        const hostname = headerList.get('x-forwarded-host') || '';
+    
+        return `${protocol}://${hostname}`;
+    }
+    return await ValidateAdmin.checkIfNotAdmin(origin);
+    //return await ValidateAdmin.checkIfNotAdmin("https://nasean.dev:443");
 }
 
 // See "Matching Paths" below to learn more
