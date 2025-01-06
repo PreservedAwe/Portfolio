@@ -12,7 +12,7 @@ export async function middleware(request: NextRequest) {
     
         return `${protocol}://${hostname}`;
     }
-    return await ValidateAdmin.checkIfNotAdmin(origin);
+    return await ValidateAdmin.checkIfNotAdmin(await origin());
     //return await ValidateAdmin.checkIfNotAdmin("https://nasean.dev:443");
 }
 
