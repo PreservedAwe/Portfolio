@@ -5,10 +5,8 @@ import type { NextRequest } from 'next/server';
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
     const origin = async() => {
-        const headerList = await headers();
-        
-        const protocol = headerList.get('x-forwarded-proto') || '';
-        const hostname = headerList.get('x-forwarded-host') || '';
+        const protocol = request.headers.get('x-forwarded-proto') || '';
+        const hostname = request.headers.get('x-forwarded-host') || '';
     
         return `${protocol}://${hostname}`;
     }
