@@ -6,7 +6,7 @@ import { NextResponse, NextRequest } from 'next/server';
 const ValidateAdmin = {
     checkIfNotAdmin: async(hostname) => {
         const cookieString = cookies().toString();
-        const res = await fetch(process.env.HOST_NAME + "/api/sign-in", {
+        const res = await fetch(hostname + "/api/sign-in", {
             headers: { Cookie: cookieString }
         })
         if(!res.ok) {
@@ -16,7 +16,7 @@ const ValidateAdmin = {
     
     checkIfAdmin: async(hostname) => {
         const cookieString = cookies().toString();
-        const res = await fetch(process.env.HOST_NAME + "/api/sign-in", {
+        const res = await fetch(hostname + "/api/sign-in", {
             headers: { Cookie: cookieString }
         })
         if(res.ok) {
