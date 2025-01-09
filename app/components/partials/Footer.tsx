@@ -14,12 +14,11 @@ export default memo(function Footer() {
 
   const pathname = usePathname();
   const isAdminPage = pathname.includes('/admin');
+  const [isVisible, setIsVisible] = useState(false);
+  
   if (isAdminPage) {
     return null;
   }
-
-  const [isVisible, setIsVisible] = useState(false);
-
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault(); 
     setIsVisible(!isVisible); 
