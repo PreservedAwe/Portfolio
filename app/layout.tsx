@@ -2,6 +2,10 @@ import type { Metadata} from "next";
 import { Anybody } from "next/font/google";
 import "./globals.css";
 import LogDisabler from "@/lib/disableLog";
+import { Suspense } from "react";
+import Loader from "@/components/partials/Loader";
+
+import dynamic from 'next/dynamic';
 
 
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
@@ -22,11 +26,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const Header = dynamic(() => import("@/components/partials/Header"), { ssr: false });
+  const Footer = dynamic(() => import("@/components/partials/Footer"), { ssr: false });
+  const MainScene = dynamic(() => import("@/components/3d/MainScene"), { ssr: false });
+  const SplineScene = dynamic(() => import("@/components/3d/SplineScene"), { ssr: false });
+
   return (
     <html lang="en">
-      <body className={'grid grid-cols-12 grid-rows-12 bg-hero-galaxy min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
-        <LogDisabler/>
-        {children}
+      <body className={'grid grid-cols-12 grid-rows-12 bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
+          <Loader>
+            <Header/>
+            {children}
+            <Footer/>
+            <LogDisabler/>
+            <SplineScene/>
+          </Loader>
       </body>
     </html>
   );

@@ -4,7 +4,6 @@ import { Suspense, memo } from "react";
 import AdminChecker from "@/components/session/AdminChecker";
 import ProjectCreateFormAdmin from "@/components/containers/ProjectCreateFormAdmin";
 import dynamic from 'next/dynamic';
-import Loader from "@/components/partials/Loader";
 
 const AdminScene = dynamic(() => import("@/components/3d/AdminScene"), { ssr: false });
 
@@ -24,12 +23,8 @@ export default memo(function Page() {
 
     return (
         <>
-            <Suspense fallback={<Loader/>}>
-                <Loader/>
-                <MainContent/>
-                <AdminChecker/>
-                <AdminScene/>
-            </Suspense>   
+            <MainContent/>
+            <AdminChecker/>
         </>
     );
 })

@@ -1,7 +1,6 @@
 import LoginForm from '@/components/containers/LoginForm';
 import ValidateAdmin from '@/lib/validateAdmin';
 import { headers } from 'next/headers';
-import Loader from "@/components/partials/Loader";
 import { Suspense, memo } from "react";
 
 export default memo(async function Page() {
@@ -18,10 +17,7 @@ export default memo(async function Page() {
 
     return (
         <>
-            <Suspense fallback={<Loader/>}>
-                <Loader/>
-                <LoginForm/>
-            </Suspense>     
+            <LoginForm/>
         </>
     );
 })

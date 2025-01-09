@@ -6,10 +6,17 @@ import {useState} from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import {memo} from 'react';
+import { usePathname } from 'next/navigation';
 
 const TechModal = dynamic(() => import("@/components/containers/TechModal"));
 
 export default memo(function Footer() {
+
+  const pathname = usePathname();
+  const isAdminPage = pathname.includes('/admin');
+  if (isAdminPage) {
+    return null;
+  }
 
   const [isVisible, setIsVisible] = useState(false);
 

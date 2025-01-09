@@ -53,12 +53,8 @@ export default memo(function Page({ params }: { params: { project: string } }) {
 
     return (
         <>
-            <Suspense fallback={<Loader/>}>
-                <Loader/>
-                <MainContent params={params} />
-                <AdminChecker/>
-                <AdminScene/>
-            </Suspense> 
+            <MainContent params={params}/>
+            <AdminChecker/>
         </>
     );
 })
