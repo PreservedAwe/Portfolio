@@ -18,3 +18,14 @@ model sessions {
   client_id    String   @id
   createdAt    DateTime @default(now())
 }
+
+model visitors {
+  visitor_id   String   @id
+  confidence   String
+  os           String
+  timezone     String
+  country      String
+  city         String
+  isp          String
+  timestamp    String
+}

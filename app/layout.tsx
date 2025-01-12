@@ -2,6 +2,7 @@ import type { Metadata} from "next";
 import { Anybody } from "next/font/google";
 import "./globals.css";
 import LogDisabler from "@/lib/disableLog";
+import UniqueUserChecker from "@/components/session/UniqueUserChecker";
 import { Suspense } from "react";
 import Loader from "@/components/partials/Loader";
 
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
   const Header = dynamic(() => import("@/components/partials/Header"), { ssr: false });
   const Footer = dynamic(() => import("@/components/partials/Footer"), { ssr: false });
-  const MainScene = dynamic(() => import("@/components/3d/MainScene"), { ssr: false });
+  //const MainScene = dynamic(() => import("@/components/3d/MainScene"), { ssr: false });
   const SplineScene = dynamic(() => import("@/components/3d/SplineScene"), { ssr: false });
 
   return (
@@ -41,6 +42,7 @@ export default function RootLayout({
             <LogDisabler/>
             <SplineScene/>
           </Loader>
+          <UniqueUserChecker/>
       </body>
     </html>
   );

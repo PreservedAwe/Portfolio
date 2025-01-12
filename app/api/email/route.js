@@ -15,7 +15,7 @@ export async function POST(request) {
     const mailOptions = {
         from: process.env.YAHOO_EMAIL,
         to: process.env.RECEIVER_EMAIL,
-        subject: ('Portfolio Message From ' + messageData.name),
+        subject: `New Portfolio Message from ${messageData.name}`,
         text: messageData.message,
     };
 

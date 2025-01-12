@@ -15,7 +15,7 @@ export async function POST(request) {
                 data: {
                     client_id: new_id,
                 },
-            })
+            });
             cookies().set('client_id', new_id, { maxAge: 600 });
             return new Response('Success!', {status: 200});
         }
