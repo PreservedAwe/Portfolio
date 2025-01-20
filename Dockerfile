@@ -7,9 +7,9 @@ ARG DATABASE_URL
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json .
 
-RUN npm install --production
+RUN npm install --omit=dev
 
 COPY . .
 
