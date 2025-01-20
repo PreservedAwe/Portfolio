@@ -2,6 +2,9 @@ import type { Metadata} from "next";
 import { Anybody } from "next/font/google";
 import "./globals.css";
 import LogDisabler from "@/lib/disableLog";
+import Header from "@/components/partials/Header";
+import Footer from "@/components/partials/Footer";
+import NMainScene from "@/components/3d/NMainScene";
 import UniqueUserChecker from "@/components/session/UniqueUserChecker";
 import { Suspense } from "react";
 import Loader from "@/components/partials/Loader";
@@ -27,12 +30,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const Header = dynamic(() => import("@/components/partials/Header"), { ssr: false });
-  const Footer = dynamic(() => import("@/components/partials/Footer"), { ssr: false });
-  //const MainScene = dynamic(() => import("@/components/3d/MainScene"), { ssr: false });
-  //const SplineScene = dynamic(() => import("@/components/3d/SplineScene"), { ssr: false });
-  const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false });
-
   return (
     <html lang="en">
       <body className={'grid grid-cols-12 grid-rows-12 bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
