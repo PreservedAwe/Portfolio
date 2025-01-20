@@ -30,7 +30,7 @@ export function Instances({ children, ...props }) {
     )
     return (
         <Merged meshes={instances} {...props}>
-        {(instances) => <context.Provider value={instances} children={children} />}
+        {(instances) => <context.Provider value={instances}>{children}</context.Provider>}
         </Merged>
 )
 }
