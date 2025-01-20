@@ -9,11 +9,11 @@ export default function Modal() {
             <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="bg-black size-10/12 rounded-md flex flex-col justify-start items-center p-10 overflow-y-auto overflow-x-hidden border-white border-4 gap-2">
                 <hr className="border-white border-2 w-full"/>
                 <Text.MText text="Model Credits:"/>
-                <Text.SText text="'Emerald Chaos' (https://skfb.ly/DZEJ) by torchwurm is licensed under Creative Commons Attribution (http://creativecommons.org /licenses/by/4.0/)"/>
+                <Text.SText text="'Need some space?' (https://skfb.ly/6QV7A) by Loïc Norgeot is licensed under Creative Commons Attribution (http://creativecommons.org /licenses/by/4.0/)."/>
                 <hr className="border-white border-2 w-full"/>
-                <Text.SText text="'Vader's TIE' (https://skfb.ly/6oZyL) by StarWars-Universe is licensed under CC Attribution-NonCommercial-ShareAlike (http://creativecommons.org /licenses/by-nc-sa/4.0/)"/>
+                <Text.SText text="'Sonic the Hedgehog (Super form)' (https://skfb.ly/ovGNI) by Bazzaaaa7 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."/>
                 <hr className="border-white border-2 w-full"/>
-                <Text.SText text="'X-Wing' (https://skfb.ly/6oZB9) by StarWars-Universe is licensed under CC Attribution-NonCommercial-ShareAlike (http://creativecommons.org /licenses/by-nc-sa/4.0/)."/>
+                <Text.SText text="'Sci Fi Planets' (https://skfb.ly/6xZ8G) by dante6686 is licensed under Creative Commons Attribution-ShareAlike (http://creativecommons.org/licenses/by-sa/4.0/)."/>
                 <hr className="border-white border-2 w-full"/>
                 <hr className="border-black border-2 w-full"/>
                 <hr className="border-white border-2 w-full"/>
