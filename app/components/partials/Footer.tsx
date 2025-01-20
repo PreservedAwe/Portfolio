@@ -1,6 +1,7 @@
 "use client"; 
 
 import * as Text from "@/components/text/Text";
+import AudioButton from "@/components/buttons/AudioButton";
 import {motion, AnimatePresence} from "framer-motion";
 import {useState} from 'react';
 import Link from 'next/link';
@@ -26,6 +27,9 @@ export default memo(function Footer() {
 
   return (
     <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center m-4 gap-3">
+      <div className="">
+        <AudioButton/>
+      </div>
       <div className="">
         <Link href="/admin/login"><Text.SText text="@2024"/></Link>
       </div>

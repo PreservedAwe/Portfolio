@@ -7,10 +7,7 @@ import Footer from "@/components/partials/Footer";
 import NMainScene from "@/components/3d/NMainScene";
 import UniqueUserChecker from "@/components/session/UniqueUserChecker";
 import { Suspense } from "react";
-import Loader from "@/components/partials/Loader";
-
-import dynamic from 'next/dynamic';
-
+import Loader, {LoaderProvider} from "@/components/partials/Loader";
 
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
 
@@ -33,13 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={'grid grid-cols-12 grid-rows-12 bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
-          <Loader>
-            <Header/>
-            {children}
-            <Footer/>
-            <LogDisabler/>
-            <NMainScene/>
-          </Loader>
+          <LoaderProvider>
+            <Loader>
+              <Header/>
+              {children}
+              <Footer/>
+              <LogDisabler/>
+              <NMainScene/>
+            </Loader>
+          </LoaderProvider>
           <UniqueUserChecker/>
       </body>
     </html>

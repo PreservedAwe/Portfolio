@@ -4,14 +4,30 @@ import {motion, AnimatePresence} from "framer-motion";
 import React, {useState, useEffect} from 'react';
 import * as Text from "@/components/text/Text";
 
-export default function Loader({children}: Readonly<{children: React.ReactNode;}>) {
+const LoaderContext = React.createContext({ showLoader: true, setShowLoader: (show: boolean) => {} });
 
+// Create a provider component
+export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}>) {
     const [showLoader, setShowLoader] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => setShowLoader(false), 3500);
-        return () => {clearTimeout(timer)};
-    }, [])
+        return () => clearTimeout(timer);
+    }, []);
+
+    return (
+        <LoaderContext.Provider value={{ showLoader, setShowLoader }}>
+        {children}
+        </LoaderContext.Provider>
+    );
+}
+
+function useLoader() {
+    return React.useContext(LoaderContext);
+}
+
+export default function Loader({children}: Readonly<{children: React.ReactNode;}>) {
+    const { showLoader } = useLoader();
 
     return (
         <AnimatePresence >
