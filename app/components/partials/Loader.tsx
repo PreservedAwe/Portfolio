@@ -1,7 +1,7 @@
 "use client";
 
 import {motion, AnimatePresence} from "framer-motion";
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import * as Text from "@/components/text/Text";
 
 const LoaderContext = React.createContext({ showLoader: true, setShowLoader: (show: boolean) => {} });
@@ -29,6 +29,15 @@ function useLoader() {
 export default function Loader({children}: Readonly<{children: React.ReactNode;}>) {
     const { showLoader } = useLoader();
 
+    const memoizedChildren = useMemo(() => {
+        return React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+                return child;
+            }
+            return null;
+        });
+    }, [children]);
+
     return (
         <AnimatePresence >
             { showLoader && (<motion.div key="loader" initial={{opacity: 0}} animate={{opacity: 1 }} exit={{opacity: 0}} transition={{ duration: 0.35, ease: "easeOut"}} className="h-screen w-screen flex flex-col justify-center items-center bg-main-theme z-50 absolute">
@@ -43,12 +52,7 @@ export default function Loader({children}: Readonly<{children: React.ReactNode;}
                 */
                 }
             </motion.div>)}
-            {!showLoader && React.Children.map(children, (child, index) => { 
-                if (React.isValidElement(child)) {
-                    return React.cloneElement(child, { key: child.key || index });
-                }
-                return null;}
-                )}
+            {!showLoader && memoizedChildren}
         </AnimatePresence>
     )
 }

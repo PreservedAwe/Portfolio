@@ -6,7 +6,7 @@ import Header from "@/components/partials/Header";
 import Footer from "@/components/partials/Footer";
 import NMainScene from "@/components/3d/NMainScene";
 import UniqueUserChecker from "@/components/session/UniqueUserChecker";
-import { Suspense } from "react";
+import React,{ Suspense } from "react";
 import Loader, {LoaderProvider} from "@/components/partials/Loader";
 
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,11 +33,13 @@ export default function RootLayout({
       <body className={'grid grid-cols-12 grid-rows-12 bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
           <LoaderProvider>
             <Loader>
-              <Header/>
-              {children}
-              <Footer/>
-              <LogDisabler/>
-              <NMainScene/>
+              <Header key="header"/>
+              {React.Children.map(children, (child, index) => 
+                  React.isValidElement(child) ? React.cloneElement(child, { key: child.key || `page-content-${index}` }): child
+              )}
+              <Footer key="footer"/>
+              <LogDisabler key="log-disabler"/>
+              <NMainScene key="main-scene"/>
             </Loader>
           </LoaderProvider>
           <UniqueUserChecker/>
