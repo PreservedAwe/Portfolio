@@ -5,8 +5,6 @@ import AdminChecker from "@/components/session/AdminChecker";
 import ProjectCreateFormAdmin from "@/components/containers/ProjectCreateFormAdmin";
 import dynamic from 'next/dynamic';
 
-const AdminScene = dynamic(() => import("@/components/3d/AdminScene"), { ssr: false });
-
 const MainContent = () => {
 
     return(

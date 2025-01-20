@@ -7,9 +7,11 @@ ARG DATABASE_URL
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
-RUN npm install
+RUN npm install --production
+
+COPY . .
 
 RUN npm run build
 

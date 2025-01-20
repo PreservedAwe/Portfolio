@@ -30,7 +30,8 @@ export default function RootLayout({
   const Header = dynamic(() => import("@/components/partials/Header"), { ssr: false });
   const Footer = dynamic(() => import("@/components/partials/Footer"), { ssr: false });
   //const MainScene = dynamic(() => import("@/components/3d/MainScene"), { ssr: false });
-  const SplineScene = dynamic(() => import("@/components/3d/SplineScene"), { ssr: false });
+  //const SplineScene = dynamic(() => import("@/components/3d/SplineScene"), { ssr: false });
+  const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false });
 
   return (
     <html lang="en">
@@ -40,7 +41,7 @@ export default function RootLayout({
             {children}
             <Footer/>
             <LogDisabler/>
-            <SplineScene/>
+            <NMainScene/>
           </Loader>
           <UniqueUserChecker/>
       </body>

@@ -5,10 +5,7 @@ import { memo } from "react";
 import prisma from "@/lib/prisma";
 import AdminChecker from "@/components/session/AdminChecker";
 import AdminButton from "@/components/buttons/AdminButton";
-import dynamic from 'next/dynamic';
 
-
-const AdminScene = dynamic(() => import("@/components/3d/AdminScene"), { ssr: false });
 
 export default memo(function Page() {
 
