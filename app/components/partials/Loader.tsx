@@ -27,6 +27,7 @@ function useLoader() {
 }
 
 const MemoizedChildren  = React.memo(({ children }: { children: React.ReactNode }) => <>{children}</>);
+MemoizedChildren.displayName = 'MemoizedChildren';
 
 export default function Loader({children}: Readonly<{children: React.ReactNode;}>) {
     const { showLoader } = useLoader();
