@@ -37,4 +37,3 @@ export default memo(function Page() {
     );
 })
 
-export const revalidate = 5

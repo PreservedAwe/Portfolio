@@ -6,7 +6,6 @@ import {memo} from 'react';
 import { usePathname } from 'next/navigation';
 
 export default memo(function Header() {
-
   const pathname = usePathname();
   const isAdminPage = pathname.includes('/admin');
   if (isAdminPage) {

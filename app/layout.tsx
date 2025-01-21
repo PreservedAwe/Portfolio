@@ -1,13 +1,14 @@
 import type { Metadata} from "next";
 import { Anybody } from "next/font/google";
 import "./globals.css";
-import LogDisabler from "@/lib/disableLog";
+//import LogDisabler from "@/lib/disableLog";
 import Header from "@/components/partials/Header";
 import Footer from "@/components/partials/Footer";
-import NMainScene from "@/components/3d/NMainScene";
-import UniqueUserChecker from "@/components/session/UniqueUserChecker";
-import React,{ Suspense } from "react";
+//import NMainScene from "@/components/3d/NMainScene";
+//import UniqueUserChecker from "@/components/session/UniqueUserChecker";
 import Loader, {LoaderProvider} from "@/components/partials/Loader";
+import React from "react";
+import dynamic from 'next/dynamic';
 
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
 
@@ -22,27 +23,31 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
 };
 
+const LogDisabler = dynamic(() => import("@/lib/disableLog"), { ssr: false });
+const UniqueUserChecker = dynamic(() => import("@/components/session/UniqueUserChecker"), { ssr: false });
+const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false });
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={'grid grid-cols-12 grid-rows-12 bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
-          <LoaderProvider>
-            <Loader>
-              <Header key="header"/>
-              {React.Children.map(children, (child, index) => 
-                  React.isValidElement(child) ? React.cloneElement(child, { key: child.key || `page-content-${index}` }): child
-              )}
-              <Footer key="footer"/>
-              <LogDisabler key="log-disabler"/>
-              <NMainScene key="main-scene"/>
-            </Loader>
-          </LoaderProvider>
-          <UniqueUserChecker/>
+        <LoaderProvider>
+          <Loader>
+            <Header key="header"/>
+            {React.Children.map(children, (child, index) => 
+                React.isValidElement(child) ? React.cloneElement(child, { key: child.key || `page-content-${index}` }): child
+            )}
+            <Footer key="footer"/>
+          </Loader>
+        </LoaderProvider>
+        <LogDisabler key="log-disabler"/>
+        <NMainScene key="main-scene"/>
+        <UniqueUserChecker/>
       </body>
     </html>
   );

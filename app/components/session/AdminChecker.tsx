@@ -20,7 +20,7 @@ export default function AdminChecker() {
         }, 120000); //2 minutes
 
         return () => {clearInterval(intId)};
-    },[]);
+    },[router]);
     
     return (<div className="fixed"></div>);
 }

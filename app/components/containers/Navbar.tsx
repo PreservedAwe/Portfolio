@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import {motion, AnimatePresence} from "framer-motion";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 const links = [
     { href: '/resume.pdf', text: 'RESUME' },
