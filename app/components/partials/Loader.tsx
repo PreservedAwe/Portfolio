@@ -26,18 +26,10 @@ function useLoader() {
     return React.useContext(LoaderContext);
 }
 
+const MemoizedChildren  = React.memo(({ children }: { children: React.ReactNode }) => <>{children}</>);
+
 export default function Loader({children}: Readonly<{children: React.ReactNode;}>) {
     const { showLoader } = useLoader();
-
-    const memoizedChildren = useMemo(() => {
-        return React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-                return child;
-            }
-            return null;
-        });
-    }, [children]);
-
     return (
         <AnimatePresence >
             { showLoader && (<motion.div key="loader" initial={{opacity: 0}} animate={{opacity: 1 }} exit={{opacity: 0}} transition={{ duration: 0.35, ease: "easeOut"}} className="h-screen w-screen flex flex-col justify-center items-center bg-main-theme z-50 absolute">
@@ -52,7 +44,7 @@ export default function Loader({children}: Readonly<{children: React.ReactNode;}
                 */
                 }
             </motion.div>)}
-            {!showLoader && memoizedChildren}
+            {!showLoader && <MemoizedChildren>{children}</MemoizedChildren>}
         </AnimatePresence>
     )
 }
