@@ -6,14 +6,22 @@ import {SpaceStars} from "./models/SpaceStarsModel";
 import {SuperSonic} from "./models/SuperSonicModel";
 import {Planets, Instances} from "./models/PlanetsModel";
 import FrameRateLimiter from "./FrameRateLimiter";
-import {memo, useEffect} from 'react';
+import {memo, useEffect, useState} from 'react';
 
 
 export default memo(function Scene() {
+    const [aspect, setAspect] = useState(1);
+
+    useEffect(() => {
+        setAspect(window.innerWidth / window.innerHeight);
+        const handleResize = () => setAspect(window.innerWidth / window.innerHeight);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div className="fixed top-0 left-0 w-screen h-screen -z-10">
-            <Canvas frameloop="never" camera={{ position: [0, 0, 5.4], fov: 75, near: 0.1, far: 5000, aspect: window.innerWidth / window.innerHeight}} >
+            <Canvas frameloop="never" camera={{ position: [0, 0, 5.4], fov: 75, near: 0.1, far: 5000, aspect: aspect}} >
                 <FrameRateLimiter fps={90}>
                     <Environment preset="studio"/>
                     <SuperSonic/>

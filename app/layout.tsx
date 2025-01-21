@@ -4,10 +4,11 @@ import "./globals.css";
 import LogDisabler from "@/lib/disableLog";
 import Header from "@/components/partials/Header";
 import Footer from "@/components/partials/Footer";
-import NMainScene from "@/components/3d/NMainScene";
+//import NMainScene from "@/components/3d/NMainScene";
 import UniqueUserChecker from "@/components/session/UniqueUserChecker";
 import React,{ Suspense } from "react";
 import Loader, {LoaderProvider} from "@/components/partials/Loader";
+import dynamic from "next/dynamic";
 
 const inter = Anybody({ subsets: ["latin"], display: 'swap' });
 
@@ -28,19 +29,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const NMainScene = dynamic(() => import("@/components/3d/NMainScene"));
   return (
     <html lang="en">
       <body className={'grid grid-cols-12 grid-rows-12 bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
-
-
-              <Header key="header"/>
+          <LoaderProvider>
+            <Header key="header"/>
               {React.Children.map(children, (child, index) => 
                   React.isValidElement(child) ? React.cloneElement(child, { key: child.key || `page-content-${index}` }): child
               )}
               <Footer key="footer"/>
               <LogDisabler key="log-disabler"/>
               <NMainScene key="main-scene"/>
-
+          </LoaderProvider>
           <UniqueUserChecker/>
       </body>
     </html>
