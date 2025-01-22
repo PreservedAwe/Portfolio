@@ -1,32 +1,30 @@
-"use client"; 
+"use client";
 
 import * as Text from "@/components/text/Text";
 import AudioButton from "@/components/buttons/AudioButton";
-import {motion, AnimatePresence} from "framer-motion";
-import {useState} from 'react';
+import * as React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import {memo} from 'react';
+import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 
 const TechModal = dynamic(() => import("@/components/containers/TechModal"));
 
-export default memo(function Footer() {
-
+export default function Footer() {
   const pathname = usePathname();
   const isAdminPage = pathname.includes('/admin');
   const [isVisible, setIsVisible] = useState(false);
-  
-  if (isAdminPage) {
-    return null;
-  }
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault(); 
-    setIsVisible(!isVisible); 
+    e.preventDefault();
+    setIsVisible(!isVisible);
   };
 
-  return (
-    <motion.footer initial={{ y: 150 }} animate={{ y: 0 }} transition={{ ease: "easeIn", duration: 1.0 }} className="col-span-12 row-span-2 flex justify-around items-center m-4 gap-3">
+  // Use useMemo to memoize the footer content, preventing unnecessary re-renders
+  const memoizedFooterContent = useMemo(() => (
+    <>
       <div className="">
         <AudioButton/>
       </div>
@@ -51,7 +49,22 @@ export default memo(function Footer() {
         <a href="https://www.linkedin.com/in/nasean-lawson" className="size-fit ">
           <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/linkedin.svg" alt="linkedin"/>
         </a>          
-      </div>            
+      </div>
+    </>
+  ), [pathname, handleClick]); // Only re-calculate if pathname changes
+
+  if (isAdminPage) {
+    return null;
+  }
+
+  return (
+    <motion.footer
+      initial={{ y: 150 }}
+      animate={{ y: 0 }}
+      transition={{ ease: 'easeIn', duration: 1.0 }}
+      className="col-span-12 row-span-2 flex justify-around items-center m-4 gap-3"
+    >
+      {memoizedFooterContent}
     </motion.footer>
   );
-})
+}
