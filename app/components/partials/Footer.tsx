@@ -62,7 +62,7 @@ export default function Footer() {
       initial={{ y: 150 }}
       animate={{ y: 0 }}
       transition={{ ease: 'easeIn', duration: 1.0 }}
-      className="col-span-12 row-span-2 flex justify-around items-center m-4 gap-3"
+      className="col-span-12 row-span-1 flex justify-around items-center m-4 gap-3"
     >
       {memoizedFooterContent}
     </motion.footer>

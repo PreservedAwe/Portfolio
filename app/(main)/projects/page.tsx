@@ -4,6 +4,8 @@ import prisma from "@/lib/prisma";
 import ProjectList from "@/components/containers/ProjectList";
 import {memo} from 'react';
 
+export const revalidate = 1800; // 30 minutes
+
 const MainContent = async () => {
 
   async function callContent() {

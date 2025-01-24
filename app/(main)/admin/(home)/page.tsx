@@ -6,6 +6,7 @@ import prisma from "@/lib/prisma";
 import AdminChecker from "@/components/session/AdminChecker";
 import AdminButton from "@/components/buttons/AdminButton";
 
+export const revalidate = 1800; // 30 minutes
 
 export default memo(function Page() {
 
