@@ -28,7 +28,7 @@ export default function UniqueUserChecker() {
                 os: 'value' in result.components.osCpu && result.components.osCpu.value != undefined ? result.components.osCpu.value : "Unknown",
                 timezone: 'value' in result.components.timezone && result.components.timezone.value != undefined ? result.components.timezone.value : "Unknown",
             }
-            const res = await fetch((origin + "/api/user"), {
+            const res = await fetch((origin + "/api/visitor"), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

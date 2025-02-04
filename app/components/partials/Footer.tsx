@@ -32,7 +32,7 @@ export default function Footer() {
         <Link href="/admin/login"><Text.SText text="@2024"/></Link>
       </div>
       <div className="">
-        <a onClick={handleClick} href="credits">
+        <a onClick={handleClick} href="/">
           <Text.SText text="Click Me For Credits and Tech Stack Used:"/> 
           <AnimatePresence>
             {isVisible && (<TechModal />)}
