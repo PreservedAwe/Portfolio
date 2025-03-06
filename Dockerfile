@@ -21,7 +21,7 @@ RUN npm run build
 
 RUN groupadd -r tempGroup
 
-RUN useradd -r -g tempGroup tempUser
+RUN useradd -r -g tempGroup -m tempUser
 
 RUN chown -R tempUser:tempGroup /home/tempUser
 
