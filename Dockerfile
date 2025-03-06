@@ -23,6 +23,8 @@ RUN groupadd -r tempGroup
 
 RUN useradd -r -g tempGroup tempUser
 
+RUN chown -R tempUser:tempGroup /home/tempUser
+
 RUN chown -R tempUser:tempGroup /app
 
 USER tempUser
