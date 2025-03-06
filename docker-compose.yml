@@ -3,7 +3,7 @@ services:
     build: .
     ports:
       - "3000:3000"
-    user: app-user  
+    user: tempUser 
     volumes:
       - sqlite_data:/app/prisma
 
