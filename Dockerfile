@@ -19,4 +19,10 @@ COPY . .
 
 RUN npm run build
 
+RUN groupadd -r app-user && useradd -r -g app-user app-user-g
+
+RUN chown -R app-user:app-user-g /app
+
+USER app-user
+
 CMD ["npm", "start"]
