@@ -5,6 +5,6 @@ services:
       - "3000:3000"
     user: tempUser 
     volumes:
-      - sqlite_data:/app/prisma/main.db
+      - sqlite_data:/app/prisma
 volumes:
   sqlite_data:      
