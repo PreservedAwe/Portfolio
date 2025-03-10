@@ -22,7 +22,7 @@ model sessions {
 model visitors {
   visitor_id   String   @id
   confidence   String
-  os           String
+  user_agent   String
   timezone     String
   country      String
   city         String

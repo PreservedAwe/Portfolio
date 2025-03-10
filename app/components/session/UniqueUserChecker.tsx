@@ -22,10 +22,11 @@ export default function UniqueUserChecker() {
         try {
             const fp = await FingerprintJS.load();
             const result = await fp.get() as GetResult;
+            console.log(result)
             const visitorInfo = {
                 visitorId: result.visitorId,
                 confidence: String(result.confidence.score),
-                os: 'value' in result.components.osCpu && result.components.osCpu.value != undefined ? result.components.osCpu.value : "Unknown",
+                user_agent: window.navigator.userAgent,
                 timezone: 'value' in result.components.timezone && result.components.timezone.value != undefined ? result.components.timezone.value : "Unknown",
             }
             const res = await fetch((origin + "/api/visitor"), {
@@ -37,6 +38,7 @@ export default function UniqueUserChecker() {
             });
         } 
         catch(error) {
+            console.log(error)
         }
     }
 

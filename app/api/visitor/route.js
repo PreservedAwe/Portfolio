@@ -27,7 +27,7 @@ export async function POST(request) {
                 data: {
                     visitor_id: messageData.visitorId,
                     confidence: messageData.confidence,
-                    os: messageData.os,
+                    user_agent: messageData.user_agent,
                     timezone: messageData.timezone,
                     country: data.country,
                     city: data.city,
@@ -54,7 +54,7 @@ export async function POST(request) {
                     <hr>
                     <p><strong>Visitor ID:</strong> ${messageData.visitorId}</p>
                     <p><strong>Confidence:</strong> ${messageData.confidence}</p>
-                    <p><strong>Operating System:</strong> ${messageData.os}</p>
+                    <p><strong>User Agent:</strong> ${messageData.user_agent}</p>
                     <p><strong>Timezone:</strong> ${messageData.timezone}</p>
                     <p><strong>Country:</strong> ${data.country}</p>
                     <p><strong>City:</strong> ${data.city}</p>
@@ -66,6 +66,7 @@ export async function POST(request) {
             `
             };
             try {
+                console.log("New Visitor Created");
                 const info = await transporter.sendMail(mailOptions);
                 return new Response('Success!', {status: 200});
         
@@ -74,13 +75,12 @@ export async function POST(request) {
             }
         } 
         catch(error) {
+            console.log(error)
             return new Response('Bad Request', {status: 400});
         }
     }
     else {
-        console.log("User Here");
+        console.log("Visitor Already Here");
         return new Response('User Already Identified', {status: 200});
     }  
-
-
 }

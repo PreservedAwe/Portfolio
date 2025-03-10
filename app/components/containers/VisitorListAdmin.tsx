@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 interface Visitor {
     visitor_id: string,   
     confidence: string,
-    os: string,
+    user_agent: string,
     timezone: string,
     country: string,
     city: string,
