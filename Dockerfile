@@ -27,6 +27,8 @@ RUN chown -R tempUser:tempGroup /home/tempUser
 
 RUN chown -R tempUser:tempGroup /app
 
+RUN chmod +x ./start-server.sh
+
 USER tempUser
 
-CMD ["npm", "start"]
+CMD ["./start-server.sh"]
