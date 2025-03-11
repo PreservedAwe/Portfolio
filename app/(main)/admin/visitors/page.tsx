@@ -5,7 +5,7 @@ import { memo } from "react";
 import prisma from "@/lib/prisma";
 import AdminChecker from "@/components/session/AdminChecker";
 
-export const revalidate = 1800; // 30 minutes
+export const dynamic = 'force-dynamic';
 
 export default memo(function Page() {
 
