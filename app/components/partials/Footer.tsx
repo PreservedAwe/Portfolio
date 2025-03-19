@@ -45,10 +45,7 @@ export default function Footer() {
         </a>
         <a href="https://github.com/PreservedAwe" className="size-fit ">
           <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/github.svg" alt="github"/>
-        </a>      
-        <a href="https://www.linkedin.com/in/nasean-lawson" className="size-fit ">
-          <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/linkedin.svg" alt="linkedin"/>
-        </a>          
+        </a>                
       </div>
     </>
   ), [pathname, handleClick]); // Only re-calculate if pathname changes

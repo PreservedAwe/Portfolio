@@ -5,7 +5,6 @@ import {motion, AnimatePresence} from "framer-motion";
 import { useState, useEffect, memo } from 'react';
 
 const links = [
-    { href: '/resume.pdf', text: 'RESUME' },
     { href: '/about', text: 'ABOUT' },
     { href: '/contact', text: 'CONTACT' },
     { href: '/hobbies', text: 'HOBBIES' },
@@ -26,7 +25,7 @@ export default function Navbar() {
     };
 
     const handleNavbarLinks = (link: {href: string, text: string}, index: number): JSX.Element => {
-        if(link.text == "RESUME"){
+        if(link.text == "HOME"){
             return(
                 <motion.a whileHover={{scale: 1.2, rotate: -360, transition: { duration: 1.3 }}} whileTap={{ scale: 1.0 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-blue-700 text-white rounded-md border-white border px-2 py-1 hover:bg-white hover:text-blue-700 hover:border-black ">
                     <div className='flex relative gap-1 justify-start items-center max-w-full max-h-full'>
