@@ -10,7 +10,7 @@ const MainContent = () => {
         <Suspense fallback={<Text.SText text="Loading video........"/>}>
           <iframe className="w-full aspect-video overflow-hidden border-none" src="https://www.youtube.com/embed/IjlABZj7chw?si=gu74NLLT-Oft_t5K" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;" allowFullScreen ></iframe>
         </Suspense>
-        <Text.LText text="I'm Nasean"/>
+        <Text.LText text="Hey There!"/>
         <Text.MText text="Watch this video for a small clip about me"/>
       </div>
     </main>
