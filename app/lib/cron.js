@@ -14,10 +14,10 @@ cron.schedule('*/2 * * * *', async () => {
         });
 
         if (expiredSessions.length > 0) {
-            console.log('Deleting expired sessions')
+            console.log(`Deleting ${expiredSessions.length} expired session(s)`)
             await prisma.sessions.deleteMany({
                 where: {
-                client_id: { in: expiredSessions.map(s => s.client_id) }
+                id: { in: expiredSessions.map(s => s.id) }
                 }
             });
         } 

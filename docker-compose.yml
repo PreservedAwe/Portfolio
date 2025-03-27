@@ -1,10 +1,6 @@
 services:
-  web:
+  my-portfolio:
     build: .
     ports:
       - "3000:3000"
-    user: tempUser 
-    volumes:
-      - sqlite_data:/app/prisma
-volumes:
-  sqlite_data:      
+    user: tempUser      

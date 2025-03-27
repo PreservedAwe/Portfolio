@@ -1,6 +1,5 @@
 import { cookies } from 'next/headers';
 import prisma from "@/lib/prisma";
-import { createId } from '@paralleldrive/cuid2';
 
 export async function POST(request) {
 
@@ -10,13 +9,10 @@ export async function POST(request) {
 
     if (messageData.code == process.env.ACCESS_CODE) {
         try {
-            const new_id = createId()
-            await prisma.sessions.create({
-                data: {
-                    client_id: new_id,
-                },
+            const newSession = await prisma.sessions.create({
+                data: {},
             });
-            cookies().set('client_id', new_id, { maxAge: 600 });
+            cookies().set('client_id', newSession.id, { maxAge: 600 });
             return new Response('Success!', {status: 200});
         }
         catch (error) {
@@ -33,7 +29,7 @@ export async function GET(request) {
     if(request.cookies.has("client_id")) {
         const session = await prisma.sessions.findUnique({
             where: {
-                client_id: request.cookies.get("client_id").value,
+                id: request.cookies.get("client_id").value,
             },
         })
         if(session != null){
