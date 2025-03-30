@@ -24,7 +24,6 @@ export const metadata: Metadata = {
 };
 
 const LogDisabler = dynamic(() => import("@/lib/disableLog"), { ssr: false });
-const UniqueUserChecker = dynamic(() => import("@/components/session/UniqueUserChecker"), { ssr: false });
 const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false });
 
 export default function RootLayout({
@@ -47,7 +46,6 @@ export default function RootLayout({
         </LoaderProvider>
         <LogDisabler key="log-disabler"/>
         <NMainScene key="main-scene"/>
-        <UniqueUserChecker/>
       </body>
     </html>
   );

@@ -18,15 +18,3 @@ model sessions {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt    DateTime @default(now())
 }
-
-model visitors {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  visitor_id   String   @unique
-  confidence   String
-  user_agent   String
-  timezone     String
-  country      String
-  city         String
-  isp          String
-  timestamp    String
-}
