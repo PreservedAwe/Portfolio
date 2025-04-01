@@ -10,6 +10,7 @@ export default function ProjectFormAdmin() {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [github_link, setGithub_link] = useState("");
+    const [banner_url, setBanner_url] = useState("");
     const [response, setResponse] = useState('');
     const [scope, animate] = useAnimate();
     const router = useRouter();
@@ -31,7 +32,7 @@ export default function ProjectFormAdmin() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({name, description, github_link,}),
+            body: JSON.stringify({name, description, github_link, banner_url}),
         });
 
         animate(scope.current, { opacity: 0});
@@ -55,6 +56,8 @@ export default function ProjectFormAdmin() {
             <textarea value={github_link} onChange={(e) => setGithub_link(e.target.value)} className="text-black" rows={2} cols={22} id="github_link" name="github_link" required/>
             <label htmlFor="description"> <Text.MText text="Description:"/> </label>
             <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="text-black" rows={5} cols={22} id="description" name="description" required/>
+            <label htmlFor="banner_url"> <Text.MText text="Banner Url:"/> </label>
+            <textarea value={banner_url} onChange={(e) => setBanner_url(e.target.value)} className="text-black" rows={2} cols={22} id="banner_url" name="banner_url" required/>                
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-white border-black border-2 text-black my-3 rounded-md shadow-md p-2">Create New Project</motion.button>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button>
             <AnimatePresence>        

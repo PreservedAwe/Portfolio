@@ -12,6 +12,7 @@ model projects {
   github_link  String
   description  String
   name         String
+  banner_url   String
 }
 
 model sessions {

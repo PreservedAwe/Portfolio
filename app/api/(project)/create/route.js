@@ -6,19 +6,16 @@ export async function POST(request) {
 
     console.log("creating project...");
 
-    console.log(projectData.name)
-    console.log(projectData.description)
-    console.log(projectData.github_link)
-
     try {
         await prisma.projects.create({
             data: {
                 name: projectData.name,
                 description: projectData.description,
                 github_link: projectData.github_link,
+                banner_url: projectData.banner_url,
             },
         })
-        
+        console.log("Project Created");
         return new Response('Success!', {status: 200});
     }
     catch (error) {

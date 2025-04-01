@@ -10,6 +10,7 @@ interface Project {
     name: string,
     description: string,
     github_link: string,
+    banner_url: string,
 }
 
 export default function ProjectFormAdmin({project}: {project: Project}) {
@@ -18,6 +19,7 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
     const [name, setName] = useState(project.name);
     const [description, setDescription] = useState(project.description);
     const [github_link, setGithub_link] = useState(project.github_link);
+    const [banner_url, setBanner_url] = useState(project.banner_url);
     const [response, setResponse] = useState('');
     const [scope, animate] = useAnimate();
     const router = useRouter();
@@ -39,7 +41,7 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({id, name, description, github_link,}),
+            body: JSON.stringify({id, name, description, github_link, banner_url}),
         });
 
         animate(scope.current, { opacity: 0});
@@ -94,6 +96,8 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
             <textarea value={github_link} onChange={(e) => setGithub_link(e.target.value)} className="text-black" rows={2} cols={22} id="github_link" name="github_link" required/>
             <label htmlFor="description"> <Text.MText text="Description:"/> </label>
             <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="text-black" rows={5} cols={22} id="description" name="description" required/>
+            <label htmlFor="banner_url"> <Text.MText text="Banner Url:"/> </label>
+            <textarea value={banner_url} onChange={(e) => setBanner_url(e.target.value)} className="text-black" rows={2} cols={22} id="banner_url" name="banner_url" required/>                       
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-green-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Update Project</motion.button>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={deleteProject} className="bg-red-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Delete Project</motion.button> 
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button> 

@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 const MainContent = async () => {
 
   async function callContent() {
-    const allProjects = await prisma.projects.findMany({take: 5});
+    const allProjects = await prisma.projects.findMany();
     return allProjects;
   }
 

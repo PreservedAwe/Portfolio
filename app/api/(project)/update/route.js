@@ -15,9 +15,10 @@ export async function POST(request) {
                 name: projectData.name,
                 description: projectData.description,
                 github_link: projectData.github_link,
+                banner_url: projectData.banner_url,
             },
         })
-        
+        console.log("Project Updated");
         return new Response('Success!', {status: 200});
     }
     catch (error) {

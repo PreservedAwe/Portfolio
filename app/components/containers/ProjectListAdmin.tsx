@@ -7,6 +7,7 @@ interface Project {
     name: string,
     description: string,
     github_link: string,
+    banner_url: string,
 }
 
 export default function ProjectListAdmin({projects}: {projects: Array<Project>}) {
@@ -18,7 +19,8 @@ export default function ProjectListAdmin({projects}: {projects: Array<Project>})
                 <div className="flex justify-center flex-col">
                     <h1 className="font-bold text-center">Project Name</h1>
                     <h1 className="text-center">{pro?.name}</h1>
-                </div>
+                    <img src={pro?.banner_url} alt="" className="size-full border-2 border-white justify-center items-center" />
+                </div>               
                 <div className="flex justify-center flex-col">
                     <h1 className="font-bold text-center">Github Link</h1>
                     <a className="border-2 border-green-500 rounded-lg p-1 m-1 hover:scale-90 transition ease-in-out text-center" href={pro?.github_link}>Click Here!</a>

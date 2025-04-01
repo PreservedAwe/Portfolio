@@ -7,12 +7,6 @@ import AdminChecker from "@/components/session/AdminChecker";
 import ProjectFormAdmin from "@/components/containers/ProjectFormAdmin";
 
 const MainContent = async ({ params }: { params: { project: string } }) => {
-
-    const uuidLength = 36
-
-    if(params.project.length != uuidLength ) {
-        ValidateAdmin.redirectToAdmin();
-    }
     
     async function callContent() {
         const project = await prisma.projects.findUnique({
@@ -26,7 +20,7 @@ const MainContent = async ({ params }: { params: { project: string } }) => {
         }
         else{
             ValidateAdmin.redirectToAdmin();
-            return {id: "", name: "", description: "", github_link: ""};
+            return {id: "", name: "", description: "", github_link: "", banner_url: ""};
         }
     }
 
