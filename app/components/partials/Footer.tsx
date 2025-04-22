@@ -29,7 +29,7 @@ export default function Footer() {
         <AudioButton/>
       </div>
       <div className="">
-        <Link href="/admin/login"><Text.SText text="@2024"/></Link>
+        <Link href="/admin/login"><Text.SText text="@2025"/></Link>
       </div>
       <div className="">
         <a onClick={handleClick} href="/">

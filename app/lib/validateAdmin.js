@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { NextResponse, NextRequest } from 'next/server';
-
+import { NextResponse } from 'next/server';
 
 const ValidateAdmin = {
     checkIfNotAdmin: async(hostname) => {

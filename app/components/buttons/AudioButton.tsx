@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { useRouter } from 'next/navigation';
 
 export default function AudioButton() {
     const [isPlaying, setIsPlaying] = useState(false);
