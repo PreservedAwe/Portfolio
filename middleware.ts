@@ -2,7 +2,7 @@ import ValidateAdmin from "@/lib/validateAdmin";
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-const allowedHosts = ['.preserved.app'];
+const allowedHosts = ['preserved.app', 'localhost:3000'];
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
@@ -14,7 +14,12 @@ export async function middleware(request: NextRequest) {
 
         if (!isAllowed) {
             console.warn(`Suspicious x-forwarded-host: ${hostname} from ${request.ip}`);
-            return NextResponse.redirect(new URL('/', request.url));
+            if (protocol == 'http'){
+                return `${protocol}://${allowedHosts[1]}`;
+            }
+            else if (protocol == 'https'){
+                return `${protocol}://${allowedHosts[0]}`;
+            }
         }
         return `${protocol}://${hostname}`;
     }
