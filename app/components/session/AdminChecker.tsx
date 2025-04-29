@@ -14,6 +14,7 @@ export default function AdminChecker() {
             const res = await fetch(origin + "/api/sign-in");
 
             if(!res.ok) {
+                window.alert("You are logged out");
                 router.push("/");
             }  
 

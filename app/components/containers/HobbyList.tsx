@@ -38,6 +38,24 @@ export default function HobbyList() {
       description: "I enjoy coding in general, I like to take in alot of coding related topics like youtube videos from 'Bro Code', 'Low Level Learning', etc........ It's very interesting in seeing what makes an application tick, and how I can learn from it",
     },  
     {
+      heading: "Music Production",
+      pic_url: "/hobbies/music-prod.png",
+      pic_alt: "music producing pic",
+      description: "I produce, mix and master metal and trap music. I've also done orchestral, and classical music.",
+    },  
+    {
+      heading: "Video Production",
+      pic_url: "/hobbies/video-editing.png",
+      pic_alt: "video editing pic",
+      description: "I create videos from my own captured media or by using other's media. For things such as AMVs, gameplay and music covers",
+    }, 
+    {
+      heading: "Photography",
+      pic_url: "/hobbies/photography.png",
+      pic_alt: "photography pic",
+      description: "I take pictures and edit them for a new twist or to make them shine in unique ways",
+    },   
+    {
       heading: "Gaming",
       pic_url: "/hobbies/gaming.png",
       pic_alt: "gaming pic",
@@ -49,28 +67,10 @@ export default function HobbyList() {
       pic_alt: "guitar playing pic",
       description: "I play the electric and acoustic guitar. The genres I mainly play revolve around metal and it's sub-genres",
     },     
-    {
-      heading: "Music Production",
-      pic_url: "/hobbies/music-prod.png",
-      pic_alt: "music producing pic",
-      description: "I produce, mix and master metal and trap music. I've also done orchestral, and classical music.",
-    },   
-    {
-      heading: "Video Production",
-      pic_url: "/hobbies/video-editing.png",
-      pic_alt: "video editing pic",
-      description: "I create videos from my own captured media or by using other's media. For things such as AMVs, gameplay and music covers",
-    },   
-    {
-      heading: "Photography",
-      pic_url: "/hobbies/photography.png",
-      pic_alt: "photography pic",
-      description: "I take pictures and edit them for a new twist or to make them shine in unique ways",
-    },   
   ]
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="flex justify-start gap-3 overflow-x-auto overflow-y-auto">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: "easeIn", duration: 1.0 }} className="flex sm:flex-row flex-col gap-3 overflow-x-auto overflow-y-auto">
       {
         hobbies.map((hob) => (
           <Hobby key={("hobby:" + hob.heading)} heading={hob.heading} pic_url={hob.pic_url} pic_alt={hob.pic_alt} description={hob.description} />

@@ -5,7 +5,6 @@ import { NextResponse } from 'next/server';
 const ValidateAdmin = {
     checkIfNotAdmin: async(hostname) => {
         const cookieString = cookies().toString();
-        console.log(hostname)
         const res = await fetch(hostname + "/api/sign-in", {
             headers: { Cookie: cookieString }
         })
@@ -24,6 +23,19 @@ const ValidateAdmin = {
         })
         if(res.ok) {
             redirect('/admin');
+        }
+    },
+
+    isAdminAccess: async(hostname) => {
+        const cookieString = cookies().toString();
+        const res = await fetch(hostname + "/api/sign-in", {
+            headers: { Cookie: cookieString }
+        })
+        if(res.ok) {
+            return true;
+        }
+        else {
+            return false;
         }
     },
 

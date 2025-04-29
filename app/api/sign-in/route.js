@@ -12,7 +12,9 @@ export async function POST(request) {
             const newSession = await prisma.sessions.create({
                 data: {},
             });
-            cookies().set('client_id', newSession.id, { maxAge: 600 });
+            const oneYearLater = new Date();
+            oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+            cookies().set('client_id', newSession.id, { expires: oneYearLater });
             return new Response('Success!', {status: 200});
         }
         catch (error) {

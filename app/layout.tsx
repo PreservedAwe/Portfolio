@@ -26,15 +26,11 @@ export const metadata: Metadata = {
 const LogDisabler = dynamic(() => import("@/lib/disableLog"), { ssr: false });
 const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
 
   return (
     <html lang="en">
-      <body className={'grid grid-cols-12 grid-rows-[auto_1fr_auto] bg-black min-h-screen min-w-screen overflow-x-hidden overflow-y-auto' + inter.className}>
+      <body className={'grid grid-cols-12 grid-rows-[auto_1fr_auto] relative h-screen w-screen bg-black overflow-x-hidden overflow-y-auto' + inter.className}>
         <LoaderProvider>
           <Loader>
             <Header key="header"/>

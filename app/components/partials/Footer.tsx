@@ -33,7 +33,7 @@ export default function Footer() {
       </div>
       <div className="">
         <a onClick={handleClick} href="/">
-          <Text.SText text="Click Me For Credits and Tech Stack Used:"/> 
+          <Text.SText text="Credits and Tech Stack Used:"/> 
           <AnimatePresence>
             {isVisible && (<TechModal />)}
           </AnimatePresence>

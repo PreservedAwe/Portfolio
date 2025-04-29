@@ -5,10 +5,11 @@ import cron from "node-cron";
 console.log('Scheduling Session Checking Every 2 mins')
 cron.schedule('*/2 * * * *', async () => {
     try {
+        const thirtyMins = new Date(Date.now() - 1800000);
         const expiredSessions = await prisma.sessions.findMany({
         where: {
             createdAt: {
-            lt: new Date(Date.now() - 600000) // 600000 milliseconds = 10 minutes
+            lt: thirtyMins
             }
         }
         });

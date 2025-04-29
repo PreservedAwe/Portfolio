@@ -36,7 +36,7 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
 
         const origin = window.location.origin;
     
-        const res = await fetch((origin + "/api/update"), {
+        const res = await fetch((origin + "/api/project/update"), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
 
         const origin = window.location.origin;
     
-        const res = await fetch((origin + "/api/delete"), {
+        const res = await fetch((origin + "/api/project/delete"), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
     
         if(res.ok) {
             setResponse('pass');
-            setTimeout(() => {setResponse(''); router.push("/admin")}, 1500);
+            setTimeout(() => {setResponse(''); router.push("/admin/proj-catalogue")}, 1500);
         }  
         else {
             setResponse('fail');
@@ -100,7 +100,7 @@ export default function ProjectFormAdmin({project}: {project: Project}) {
             <textarea value={banner_url} onChange={(e) => setBanner_url(e.target.value)} className="text-black" rows={2} cols={22} id="banner_url" name="banner_url" required/>                       
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-green-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Update Project</motion.button>
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={deleteProject} className="bg-red-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Delete Project</motion.button> 
-            <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button> 
+            <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin/proj-catalogue");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button> 
             <AnimatePresence>        
                 {(response == 'pass') && (<Text.GreenAlertText text="Request Successful" />)}
                 {(response == 'fail') && (<Text.RedAlertText text="Request Failure" />)}

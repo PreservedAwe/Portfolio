@@ -27,7 +27,7 @@ export default function ProjectFormAdmin() {
 
         const origin = window.location.origin;
     
-        const res = await fetch((origin + "/api/create"), {
+        const res = await fetch((origin + "/api/project/create"), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function ProjectFormAdmin() {
     
         if(res.ok) {
             setResponse('pass');
-            setTimeout(() => {setResponse(''); router.push("/admin")}, 1500);
+            setTimeout(() => {setResponse(''); router.push("/admin/proj-catalogue")}, 1500);
         }  
         else {
             setResponse('fail');
@@ -59,7 +59,7 @@ export default function ProjectFormAdmin() {
             <label htmlFor="banner_url"> <Text.MText text="Banner Url:"/> </label>
             <textarea value={banner_url} onChange={(e) => setBanner_url(e.target.value)} className="text-black" rows={2} cols={22} id="banner_url" name="banner_url" required/>                
             <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="submit" className="bg-white border-black border-2 text-black my-3 rounded-md shadow-md p-2">Create New Project</motion.button>
-            <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button>
+            <motion.button whileHover={{scale: 1.2, transition: { duration: 0.3 },}} whileTap={{ scale: 0.9 }} type="button" onClick={() => {router.push("/admin/proj-catalogue");}} className="bg-yellow-500 border-black border-2 text-black my-3 rounded-md shadow-md p-2">Go Back</motion.button>
             <AnimatePresence>        
                 {(response == 'pass') && (<Text.GreenAlertText text="Request Successful" />)}
                 {(response == 'fail') && (<Text.RedAlertText text="Request Failure" />)}

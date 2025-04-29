@@ -1,7 +1,7 @@
 import ContentType from "@/lib/classes";
 import * as Text from "@/components/text/Text";
 import prisma from "@/lib/prisma";
-import ProjectList from "@/components/containers/ProjectList";
+import SongList from "@/components/containers/SongList";
 import {memo} from 'react';
 
 export const dynamic = 'force-dynamic';
@@ -9,17 +9,17 @@ export const dynamic = 'force-dynamic';
 const MainContent = async () => {
 
   async function callContent() {
-    const allProjects = await prisma.projects.findMany();
-    return allProjects;
+    const allSongs = await prisma.songs.findMany();
+    return allSongs;
   }
 
-  const projects = await callContent();
+  const songs = await callContent();
 
   return(
     <main className={ContentType.mainContent}>
       <div className="flex flex-col h-full w-full gap-3">
-        <Text.LText text="My Projects"/>
-        <ProjectList projects={projects} />
+        <Text.LText text="My Songs"/>
+        <SongList songs={songs} />
       </div>
     </main>
   );

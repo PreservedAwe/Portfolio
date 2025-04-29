@@ -1,7 +1,14 @@
 import prisma from "@/lib/prisma";
-
+import ValidateAdmin from '@/lib/validateAdmin';
 export async function GET(request) {
 
+    const url = new URL(request.url);
+    const origin = `${url.protocol}//${url.host}`;
+    const isAdmin = await ValidateAdmin.isAdminAccess(origin);
+    if(!isAdmin) {
+        return new Response('Unauthorized', {status: 401});
+    }
+    
     console.log("logging out...");
 
     if(request.cookies.has("client_id")) {

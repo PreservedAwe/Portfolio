@@ -15,6 +15,16 @@ model projects {
   banner_url   String
 }
 
+model songs {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  genre        String
+  description  String
+  cover_url    String
+  audio_url    String
+  createdAt    DateTime @default(now())
+}
+
 model sessions {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt    DateTime @default(now())

@@ -5,10 +5,11 @@ import {motion, AnimatePresence} from "framer-motion";
 import { useState, useEffect, memo } from 'react';
 
 const links = [
+    { href: '/projects', text: 'PROJECTS' },
+    { href: '/songs', text: 'SONGS' },
+    { href: '/hobbies', text: 'HOBBIES' },
     { href: '/about', text: 'ABOUT' },
     { href: '/contact', text: 'CONTACT' },
-    { href: '/hobbies', text: 'HOBBIES' },
-    { href: '/projects', text: 'PROJECTS' },
     { href: '/', text: 'HOME' },
 ];
 
@@ -37,7 +38,7 @@ export default function Navbar() {
         }
         else{
             return(
-                <motion.a whileHover={{scale: 1.2, rotate: 360, transition: { duration: 1 }}} whileTap={{ scale: 0.8 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-black text-white rounded-md border-white border px-2 py-1 hover:bg-white hover:text-black hover:border-black ">
+                <motion.a whileHover={{scale: 1.2, rotate: 360, transition: { duration: 1 }}} whileTap={{ scale: 0.8 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-text-theme text-white rounded-md border-white border px-2 py-1 hover:bg-white hover:text-black ">
                     <div className='flex relative gap-1 justify-start items-center max-w-full max-h-full'>
                         <img className="size-5 absolute w-full h-full" src="/emeralds.svg" alt="emeralds"/>
                         <span className='z-10 font-bold'>{link.text}</span>
@@ -73,7 +74,7 @@ export default function Navbar() {
             }
             {
                 width < 480 && (
-                    <div className='flex justify-end items-center size-full'>
+                    <div className='flex justify-center items-center size-full'>
                         <a onClick={handleClick} href="menus" className='relative'><motion.img animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} className='size-28' src="/menu.svg" alt="menu"/></a>
                         <AnimatePresence>
                             {

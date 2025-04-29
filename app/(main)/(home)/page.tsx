@@ -6,7 +6,7 @@ const MainContent = () => {
 
   return(
     <main className={ContentType.mainContent}>
-      <div className="flex justify-center flex-col max-h-full max-w-full overflow-auto">
+      <div className="flex justify-center flex-col h-full w-full">
         <Text.LText text="Welcome!"/>
         <Text.MText text="Take a look around at the menu above or any links below."/>
       </div>
