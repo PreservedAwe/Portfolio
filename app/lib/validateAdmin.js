@@ -26,9 +26,25 @@ const ValidateAdmin = {
         }
     },
 
-    isAdminAccess: async(hostname) => {
+    isAdminAccess: async(request) => {
+        const allowedHosts = ['preserved.app', 'localhost:3000'];
+        const protocol = request.headers.get('x-forwarded-proto') || '';
+        const hostname = request.headers.get('x-forwarded-host') || '';
+        const isAllowed = allowedHosts.some(allowed => hostname.endsWith(allowed));
+        let origin;
+        if (!isAllowed) {
+            if (protocol == 'http'){
+                origin = `${protocol}://${allowedHosts[1]}`;
+            }
+            else if (protocol == 'https'){
+                origin =  `${protocol}://${allowedHosts[0]}`;
+            }
+        }
+        else{
+            origin =  `${protocol}://${hostname}`;
+        }
         const cookieString = cookies().toString();
-        const res = await fetch(hostname + "/api/sign-in", {
+        const res = await fetch(origin + "/api/sign-in", {
             headers: { Cookie: cookieString }
         })
         if(res.ok) {

@@ -6,7 +6,7 @@ const allowedHosts = ['preserved.app', 'localhost:3000'];
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
-    const origin = async() => {
+    const origin = () => {
         const protocol = request.headers.get('x-forwarded-proto') || '';
         const hostname = request.headers.get('x-forwarded-host') || '';
 
@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
         }
         return `${protocol}://${hostname}`;
     }
-    return await ValidateAdmin.checkIfNotAdmin(await origin());
+    return await ValidateAdmin.checkIfNotAdmin(origin());
 }
 
 // See "Matching Paths" below to learn more
