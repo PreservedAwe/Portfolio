@@ -1,8 +1,6 @@
 services:
   my-portfolio:
     build: .
-    ports:
-      - "3000:3000"
     user: tempUser   
     networks:
       - shared-network 
