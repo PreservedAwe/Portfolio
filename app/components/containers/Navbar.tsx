@@ -28,7 +28,7 @@ export default function Navbar() {
     const handleNavbarLinks = (link: {href: string, text: string}, index: number): JSX.Element => {
         if(link.text == "HOME"){
             return(
-                <motion.a whileHover={{scale: 1.2, rotate: -360, transition: { duration: 1.3 }}} whileTap={{ scale: 1.0 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-blue-700 text-white rounded-md border-white border px-2 py-1 hover:bg-white hover:text-blue-700 hover:border-black ">
+                <motion.a whileHover={{scale: 1.2, rotate: -360, transition: { duration: 1.3 }}} whileTap={{ scale: 1.0 }} onClick={(e) => {e.preventDefault(); router.push(link.href);}} key={index} href={link.href} className="bg-home-text-theme text-white rounded-md border-white border px-2 py-1 hover:bg-text-theme hover:text-black hover:border-white ">
                     <div className='flex relative gap-1 justify-start items-center max-w-full max-h-full'>
                         <img className="size-5 absolute w-full h-full" src="/resumeBg.svg" alt="M emerald"/>
                         <span className='z-10 font-bold'>{link.text}</span>

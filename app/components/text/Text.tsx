@@ -34,6 +34,6 @@ export function RedAlertText({text}: {text: string}) {
 
 export function LoadingText({text}: {text: string}) {
     return (
-        <motion.h1 animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} className="text-blue-500 font-bold text-2xl text-center bg-blue-950 border-2 border-blue-500 rounded-full p-3" >{text}</motion.h1>
+        <motion.h1 animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} className="text-black font-bold text-2xl text-center bg-text-theme border-2 border-black rounded-full p-3" >{text}</motion.h1>
     );
 }
