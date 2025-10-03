@@ -1,0 +1,11 @@
+services:
+  my-portfolio_green:
+    build: .
+    container_name: my-portfolio_green
+    user: tempUser   
+    networks:
+      - shared-network 
+
+networks:
+  shared-network:
+    external: true               
