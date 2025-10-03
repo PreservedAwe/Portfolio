@@ -1,6 +1,7 @@
 services:
   my-portfolio:
     build: .
+    container_name: my-portfolio
     user: tempUser   
     networks:
       - shared-network 
