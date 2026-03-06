@@ -23,8 +23,7 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
 };
 
-const LogDisabler = dynamic(() => import("@/lib/disableLog"), { ssr: false });
-const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false });
+const Client3DRuntime = dynamic(() => import("@/components/3d/Client3DRuntime"), { ssr: false });
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
 
@@ -40,8 +39,7 @@ export default async function RootLayout({children,}: Readonly<{children: React.
             <Footer key="footer"/>
           </Loader>
         </LoaderProvider>
-        <LogDisabler key="log-disabler"/>
-        <NMainScene key="main-scene"/>
+        <Client3DRuntime />
       </body>
     </html>
   );

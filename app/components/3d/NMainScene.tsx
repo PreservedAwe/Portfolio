@@ -20,13 +20,13 @@ export default function Scene() {
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 w-screen h-screen -z-10">
+        <div className="fixed top-0 left-0 w-screen h-screen bg-hero-galaxy -z-10">
             <Canvas frameloop="never" camera={{ position: [0, 0, 5.4], fov: 75, near: 0.1, far: 5000, aspect: aspect }} >
                 <FrameRateLimiter fps={90}>
                     <Environment preset="city"/>
                     <SuperSonic/>
                     <Instances><Planets/></Instances>
-                    <SpaceStars/>
+                    {/*  <SpaceStars /> */}
                 </FrameRateLimiter>
             </Canvas>
         </div>

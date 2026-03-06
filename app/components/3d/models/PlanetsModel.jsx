@@ -62,7 +62,7 @@ export function Planets(props) {
     })
     return (
         <group ref={wrapperRef} {...props} dispose={null}>
-        <group ref={modelRef} scale={[0.90, 0.90, 0.90]} rotation={[-Math.PI / 2, 0, 0]}>
+        <group ref={modelRef} scale={[0.90, 0.90, 0.88]} rotation={[-Math.PI / 2, 0, 0]}>
             <instances.Sphere position={[-4.625, -0.162, 0]} scale={1.55} />
             <instances.Sphere1 position={[-1.36, -1.149, 0]} scale={1.366} />
             <instances.Sphere2 position={[-2.279, -3.01, 0]} rotation={[0, 0, 0.124]} scale={1.692} />

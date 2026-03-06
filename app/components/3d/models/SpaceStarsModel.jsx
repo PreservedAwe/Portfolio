@@ -37,7 +37,7 @@ export function SpaceStars(props) {
                     geometry={nodes.Object_2.geometry}
                     material={materials['Scene_-_Root']}
                     rotation={[-Math.PI / 2, 0, 0]}
-                    scale={0.013}
+                    scale={0.012}
                 />
             </group>
         </group>
