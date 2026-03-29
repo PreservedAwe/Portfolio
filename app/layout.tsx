@@ -29,7 +29,7 @@ export default async function RootLayout({children,}: Readonly<{children: React.
 
   return (
     <html lang="en">
-      <body className={'grid grid-cols-12 grid-rows-[auto_1fr_auto] relative h-screen w-screen bg-black overflow-x-hidden overflow-y-auto' + inter.className}>
+      <body className={'grid grid-cols-12 grid-rows-[auto_1fr_auto] relative h-screen w-screen bg-black overflow-x-hidden overflow-y-auto z-0' + inter.className}>
         <LoaderProvider>
           <Loader>
             <Header key="header"/>

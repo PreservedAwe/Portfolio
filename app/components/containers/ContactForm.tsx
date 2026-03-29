@@ -19,7 +19,7 @@ export default function ContactForm() {
 
         const origin = window.location.origin;
     
-        const res = await fetch((origin + "/api/email"), {
+        const res = await fetch((origin + "/api/discord-contact"), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
