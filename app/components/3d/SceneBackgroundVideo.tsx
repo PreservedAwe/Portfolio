@@ -15,7 +15,7 @@ export function BackgroundVideo() {
             console.log('video loaded');
             markVideoAsReady();
         };
-        video.addEventListener('canplaythrough', handleLoaded);
+        video.addEventListener('loadeddata', handleLoaded);
 
         const handleVisibility = () => {
             if (!document.hidden) {
@@ -25,7 +25,7 @@ export function BackgroundVideo() {
         document.addEventListener('visibilitychange', handleVisibility);   
 
         return () => {
-            video.removeEventListener('canplaythrough', handleLoaded);
+            video.removeEventListener('loadeddata', handleLoaded);
             video.removeEventListener('visibilitychange', handleVisibility);
         };
     }, [markVideoAsReady]);
