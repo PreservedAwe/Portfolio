@@ -12,7 +12,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-galaxy": "url('/galaxy-stars.gif')",
+//        "hero-galaxy": "url('/galaxy-stars.gif')",
         "main-theme": "linear-gradient(to right top, #43ff00, #89ff00, #b6ff00, #dcff00, #fdff00)",
         "text-theme": "linear-gradient(to bottom, #ff1b1b, #ff6a00, #ffa000, #ffd100, #fdff00)",
         "home-text-theme": "linear-gradient(to right, #000000, #5b2b2b, #af5d33, #eba520, #fdff00)",

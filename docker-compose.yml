@@ -1,7 +1,7 @@
 services:
-  my-portfolio:
+  preserved-portfolio:
     build: .
-    container_name: my-portfolio
+    container_name: preserved-portfolio
     user: tempUser   
     networks:
       - shared-network 

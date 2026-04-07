@@ -38,8 +38,8 @@ export default async function RootLayout({children,}: Readonly<{children: React.
             )}
             <Footer key="footer"/>
           </Loader>
+          <Client3DRuntime />
         </LoaderProvider>
-        <Client3DRuntime />
       </body>
     </html>
   );
