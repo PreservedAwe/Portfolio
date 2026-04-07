@@ -1,11 +1,11 @@
 "use client";
 
 import {motion, AnimatePresence} from "framer-motion";
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import * as Text from "@/components/text/Text";
 import { useProgress } from "@react-three/drei";
 
-const LoaderContext = React.createContext({ showLoader: true, setShowLoader: (value: boolean) => {}, markVideoAsReady: () => {} });
+const LoaderContext = React.createContext({ showLoader: true, setShowLoader: (value: boolean) => {}, markVideoAsReady: () => {}, progress: '0%', });
 
 // Create a provider component
 export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}>) {
@@ -25,6 +25,11 @@ export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}
     const minDisplayTimeMs = 3000;
     const [hasMinTimePassed, setHasMinTimePassed] = useState(false);
 
+    useEffect(() => {
+        const timer = setTimeout(() => setHasMinTimePassed(true), minDisplayTimeMs);
+        return () => clearTimeout(timer);
+    }, []);
+
     //  Signal 3: video background loading
     const [hasBackgroundVideoLoaded, setHasBackgroundVideoLoaded] = useState(false);
     //      Call this when your background video is ready
@@ -33,10 +38,17 @@ export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}
         setHasBackgroundVideoLoaded(true);
     };
 
-    useEffect(() => {
-        const timer = setTimeout(() => setHasMinTimePassed(true), minDisplayTimeMs);
-        return () => clearTimeout(timer);
-    }, []);
+    const progress = useMemo(() => {
+        let completed = 0;
+        const total = [assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded].length;
+
+        if (assetsLoaded) completed++;
+        if (hasMinTimePassed) completed++;
+        if (hasBackgroundVideoLoaded) completed++;
+
+        return `${Math.floor((completed / total) * 100)}%`;
+
+    }, [assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded]);
 
     useEffect(() => {
         console.log({ assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded });
@@ -46,7 +58,7 @@ export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}
     }, [assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded]);
 
     return (
-        <LoaderContext.Provider value={{ showLoader, setShowLoader, markVideoAsReady }}>
+        <LoaderContext.Provider value={{ showLoader, setShowLoader, markVideoAsReady, progress }}>
         {children}
         </LoaderContext.Provider>
     );
@@ -60,12 +72,12 @@ const MemoizedChildren  = React.memo(({ children }: { children: React.ReactNode 
 MemoizedChildren.displayName = 'MemoizedChildren';
 
 export default function Loader({children}: Readonly<{children: React.ReactNode;}>) {
-    const { showLoader } = useLoader();
+    const { showLoader, progress } = useLoader();
     return (
         <AnimatePresence >
             { showLoader && (<motion.div key="loader" initial={{opacity: 0}} animate={{opacity: 1 }} exit={{opacity: 0}} transition={{ duration: 0.35, ease: "easeOut"}} className="h-screen w-screen flex flex-col justify-center items-center bg-main-theme z-50 absolute">
                 <motion.img animate={{ y: [-6, 6] }} transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse", ease: "linear" }} src="/supersonicload.png" alt="loading" className="size-64 m-3" />
-                <Text.LoadingText text="Loading..."/>
+                <Text.LoadingText text={`Loading... ${progress}`}/>
                 {
                 /* Switch Out motion.img and img based on Framer Motion's Animations. 
                     Animations = motion.img, No Animations = img
