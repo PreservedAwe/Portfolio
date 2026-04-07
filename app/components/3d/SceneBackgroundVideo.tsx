@@ -10,12 +10,24 @@ export function BackgroundVideo() {
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
+
         const handleLoaded = () => {
             console.log('video loaded');
             markVideoAsReady();
         };
         video.addEventListener('canplaythrough', handleLoaded);
-        return () => video.removeEventListener('canplaythrough', handleLoaded);
+
+        const handleVisibility = () => {
+            if (!document.hidden) {
+            video.play().catch(() => {});
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);   
+
+        return () => {
+            video.removeEventListener('canplaythrough', handleLoaded);
+            video.removeEventListener('visibilitychange', handleVisibility);
+        };
     }, [markVideoAsReady]);
 
     return (

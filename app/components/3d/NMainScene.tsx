@@ -46,7 +46,7 @@ export default function Scene() {
         <div className="fixed top-0 left-0 w-screen h-screen bg-hero-galaxy -z-10">
             <BackgroundVideo />
             <Canvas frameloop="never" camera={{position: [cameraPos.x, cameraPos.y, cameraPos.z], fov: BASE_FOV, near: BASE_NEAR, far: BASE_FAR,}} >
-                <FrameRateLimiter fps={90}>
+                <FrameRateLimiter fps={Math.min(60, window.devicePixelRatio * 60)}>
                     <Environment preset="city"/>
                     <group position={[0,0,0]}>
                         <SuperSonic/>
