@@ -32,30 +32,29 @@ export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}
 
     //  Signal 3: video background loading
     const [hasBackgroundVideoLoaded, setHasBackgroundVideoLoaded] = useState(false);
+
     //      Call this when your background video is ready
     const markVideoAsReady = () => {
-        console.log('executing mark vid');
         setHasBackgroundVideoLoaded(true);
     };
 
     const progress = useMemo(() => {
         let completed = 0;
-        const total = [assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded].length;
+        const total = [assetsLoaded, hasMinTimePassed].length;
 
         if (assetsLoaded) completed++;
         if (hasMinTimePassed) completed++;
-        if (hasBackgroundVideoLoaded) completed++;
+        //if (hasBackgroundVideoLoaded) completed++;
 
         return `${Math.floor((completed / total) * 100)}%`;
 
-    }, [assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded]);
+    }, [assetsLoaded, hasMinTimePassed]);
 
     useEffect(() => {
-        console.log({ assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded });
-        if (assetsLoaded && hasMinTimePassed && hasBackgroundVideoLoaded) {
+        if (assetsLoaded && hasMinTimePassed) {
         setShowLoader(false);
         }
-    }, [assetsLoaded, hasMinTimePassed, hasBackgroundVideoLoaded]);
+    }, [assetsLoaded, hasMinTimePassed]);
 
     return (
         <LoaderContext.Provider value={{ showLoader, setShowLoader, markVideoAsReady, progress }}>

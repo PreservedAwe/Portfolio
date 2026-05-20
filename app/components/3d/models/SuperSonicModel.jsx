@@ -13,7 +13,7 @@ import { useFrame } from '@react-three/fiber'
 
 export function SuperSonic(props) {
 const group = useRef()
-const { nodes, materials, animations } = useGLTF('/sonic_the_hedgehog_super_form.glb')
+const { nodes, materials, animations } = useGLTF('/models/sonic_the_hedgehog_super_form.glb')
 const { actions } = useAnimations(animations, group)
 useFrame(() => {
 

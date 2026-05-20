@@ -1,10 +1,12 @@
 services:
   preserved-portfolio:
+    container_name: web-preserved-prod-alpha
     build: .
-    container_name: preserved-portfolio
     user: tempUser   
     networks:
-      - shared-network 
+      shared-network:                   
+        aliases:
+          - web.preserved.prod.alpha   
 
 networks:
   shared-network:

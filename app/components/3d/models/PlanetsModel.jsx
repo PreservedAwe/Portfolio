@@ -13,7 +13,7 @@ import * as THREE from 'three'
 
 const context = createContext()
 export function Instances({ children, ...props }) {
-    const { nodes } = useGLTF('/sci_fi_planets.glb')
+    const { nodes } = useGLTF('/models/sci_fi_planets.glb')
     const instances = useMemo(
         () => ({
         Sphere: nodes.Sphere_0,

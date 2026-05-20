@@ -3,13 +3,13 @@
 import dynamic from "next/dynamic"
 
 const LogDisabler = dynamic(() => import("@/lib/disableLog"), { ssr: false })
-const NMainScene = dynamic(() => import("@/components/3d/NMainScene"), { ssr: false })
+const Scene = dynamic(() => import("@/components/3d/full-scenes/EarthSonicScene"), { ssr: false })
 
 export default function Client3DRuntime() {
   return (
     <>
       <LogDisabler />
-      <NMainScene />
+      <Scene />
     </>
   )
 }
