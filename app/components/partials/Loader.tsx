@@ -3,9 +3,8 @@
 import {motion, AnimatePresence} from "framer-motion";
 import React, {useState, useEffect, useMemo} from 'react';
 import * as Text from "@/components/text/Text";
-import { useProgress } from "@react-three/drei";
 
-const LoaderContext = React.createContext({ showLoader: true, setShowLoader: (value: boolean) => {}, markVideoAsReady: () => {}, progress: '0%', });
+const LoaderContext = React.createContext({ showLoader: true, setShowLoader: (value: boolean) => {}, markVideoAsReady: () => {}, markSceneAsReady: () => {}, progress: '0%', });
 
 // Create a provider component
 export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}>) {
@@ -14,12 +13,11 @@ export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}
     //Signals for both minimum loading time and assest loading time
 
     //  Signal 1: asset loading
-    const { active } = useProgress();
     const [assetsLoaded, setAssetsLoaded] = useState(false);
 
-    useEffect(() => {
-        if (!active) {setAssetsLoaded(true)};
-    }, [active]);
+    const markSceneAsReady = () => {
+        setAssetsLoaded(true);
+    };
 
     //  Signal 2: minimum time
     const minDisplayTimeMs = 3000;
@@ -57,7 +55,7 @@ export function LoaderProvider({children}: Readonly<{children: React.ReactNode;}
     }, [assetsLoaded, hasMinTimePassed]);
 
     return (
-        <LoaderContext.Provider value={{ showLoader, setShowLoader, markVideoAsReady, progress }}>
+        <LoaderContext.Provider value={{ showLoader, setShowLoader, markVideoAsReady, markSceneAsReady, progress }}>
         {children}
         </LoaderContext.Provider>
     );

@@ -39,13 +39,16 @@ export default function Footer() {
           </AnimatePresence>
         </a>
       </div>
-      <div className="flex justify-center bg-white rounded-lg border-black border-2 p-1 gap-1">
-        <a href="https://www.youtube.com/channel/UCvhHoV52e1Y1UuS411Jmc9w" className="size-fit ">
-          <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/youtube.svg" alt="youtube"/>
-        </a>
+      <div className="flex justify-center bg-white rounded-lg border-black border-2 p-2 gap-1">
         <a href="https://github.com/PreservedAwe" className="size-fit ">
-          <motion.img whileHover={{scale: 1.3, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/github.svg" alt="github"/>
-        </a>                
+          <motion.img whileHover={{scale: 1.1, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/github.svg" alt="github"/>
+        </a>         
+        <a href="https://www.youtube.com/channel/UCvhHoV52e1Y1UuS411Jmc9w" className="size-fit ">
+          <motion.img whileHover={{scale: 1.1, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/youtube.svg" alt="youtube"/>
+        </a>
+        <a href="https://open.spotify.com/artist/0VubplALhCPK9LzlV7hC2R?si=bbZ9MBCIQ7yNxPZk6Hq5sg" className="size-fit ">
+          <motion.img whileHover={{scale: 1.1, rotate: 360}} whileTap={{ scale: 0.9 }} className="size-14 " src="/spotify.svg" alt="spotify"/>
+        </a>                          
       </div>
     </>
   ), [pathname, handleClick]); // Only re-calculate if pathname changes

@@ -3,14 +3,25 @@
 import { Canvas, useThree} from '@react-three/fiber';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
-import {Environment} from "@react-three/drei";
 import * as THREE from 'three';
+import { useFrame } from '@react-three/fiber';
+import { useLoader } from "@/components/partials/Loader";
 
 function FullEarthSuperSonicScene() {
     const group = useRef();
     const { scene, cameras, animations } = useGLTF('/models/earth-supersonic.glb');
     const { actions } = useAnimations(animations, group);
     const { set, size } = useThree();
+    const { markSceneAsReady } = useLoader();
+
+    const firstFrameDone = useRef(false);
+
+    useFrame(() => {
+        if (firstFrameDone.current) return;
+
+        firstFrameDone.current = true;
+        markSceneAsReady();
+    });
 
     useEffect(() => {
         scene.traverse((obj) => {
